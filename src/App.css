@@ -1,38 +1,228 @@
-.App {
-  text-align: center;
+
+*{
+  background-color: #282c33;
+  /* background-color: #1F232A; */
+  
+  color: #fff;
+}
+.projects{
+    transition: all .5s;
+    border: 1px solid #c778dd;
+    /* box-shadow:0 0 2px #c778dd ; */
+    outline: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.projects:hover , .projects:active {
+    border-color:transparent;
+    outline: none;
+    transform: translateY(-20px);
+    box-shadow:0 0 5px #c778dd ,0px 0px 5px #282c33, 0 0 10px #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.inputField{
+  background: linear-gradient(to top right , #282c33 60% ,#C4C4C41A,#c778dd);
+  /* background: linear-gradient(to right, #979696cc ,#C4C4C41A); */
+  padding: 10px;
+  color: whitesmoke;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #979696cc ;
+  width: 100%;
+   box-shadow: 0 0 2px  #979696cc;
+   transition: all .3s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.inputField:focus {
+  box-shadow: 0 0 10px  #979696cc;
 }
 
-.App-link {
-  color: #61dafb;
+.requiredError{
+    color: #c778dd;
+    margin: 0;
+    font-size: 12px;
+    padding: 0;
+}
+.error-wrapper {
+  height: 16px; 
+}
+.ErrorArea{
+    color: transparent;
+    visibility: none;
+    margin: 0;
+    font-size: 12px;
+    padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.icons{
+  transition:  all .3s;
+}
+
+.icons:hover , .icons:active{
+
+  box-shadow: 0 0 10px #fff;
+  transform: scale(1.1);
+}
+
+
+.myshadow{
+   box-shadow: 0 0 30px #fff;
+}
+
+
+/* SweetAlert Toast Styling */
+.swal2-toast {
+  background: #1e1e1e !important;   
+  color: #fff !important;
+  border-radius: 10px !important;
+  padding: 12px 18px !important;
+  /* box-shadow: 0px 4px 15px rgba(0,0,0,0.4) !important; */
+  box-shadow: 0px 4px 15px rgba(255,255,255,0.2) !important;
+
+}
+
+.swal2-toast .swal2-title {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.swal2-toast .swal2-icon {
+  margin-right: 10px !important;
+  /* filter: brightness(2.2) !important; */
+}
+
+
+/* SweetAlert Modal Styling */
+.swal2-popup {
+  /* background: #1e1e1e !important; */
+  background: #000 !important;
+  color: #fff !important;
+  border-radius: 14px !important;
+}
+
+.swal2-title {
+  color: #fff !important;
+  font-size: 20px !important;
+}
+
+.swal2-html-container {
+  color: #ccc !important;
+}
+
+.swal2-icon.swal2-warning {
+  color: #f8bb86 !important;
+  border-color: #f8bb86 !important;
+}
+
+/* .swal2-confirm {
+  background-color: #E5484D !important;
+  border-radius: 8px !important;
+} */
+
+.swal2-confirm  {
+  background: transparent !important;
+  color: #E5484D !important;
+  border: 1px solid #E5484D !important;
+}
+
+
+/* .swal2-cancel {
+  background-color: #C778DD !important;
+  border-radius: 8px !important;
+} */
+
+.swal2-cancel {
+  background: transparent !important;
+  color: #C778DD !important;
+  border: 1px solid #C778DD !important;
+}
+
+
+
+
+/* Default: Hide scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;       /* Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;                    /* Chrome/Safari/Edge */
+  background: transparent;
+}
+
+/* Keep scrollbar invisible until hover */
+.custom-scrollbar {
+  scrollbar-color: transparent transparent;   /* Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+
+/* On hover: show thin scrollbar */
+.custom-scrollbar:hover {
+  scrollbar-width: thin;
+  scrollbar-color: #c778dd transparent;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar {
+  width: 3px;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: #c778dd;
+  border-radius: 10px;
+}
+
+.custom-scrollbar:focus {
+  scrollbar-width: thin;
+}
+
+.custom-scrollbar:focus::-webkit-scrollbar {
+  width: 3px;
+}
+
+
+.modal{
+  /* background-image: url("../public/hyperpower.gif");
+  background-size: cover;
+  background-position: top left;
+  background-repeat: no-repeat; */
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+.loginBackground{
+    /* ../public/lock.gif */
+  background-image: url("../public/lock.gif") !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+
+.edit-buttons{
+  /* border border-theme-primary text-[#ABB2BF] px-3 py-1 text-xs rounded  transition-all duration-300 hover:scale-105 */
+  background-color: #ccc;
+  border: 1px solid #c778dd;
+  padding:4px 12px;
+  font: 14px;
+  border-radius: 6px;
+  transition: all .3s;
+  background-clip: blur(40px);
+}
+.edit{
+  /* className="!text-[#C778DD] bg-transparent  hover:!text-[#C778DD] transition-all duration-300 hover:scale-105" */
+ color: #ABB2BF !important;
+ background: transparent;
+ transition: all .3s;
+}
+
+.edit:hover {
+  color:#C778DD !important ;
+  transform: scale(1.2);
 }

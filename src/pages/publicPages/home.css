@@ -1,0 +1,50 @@
+.home{
+    height: calc(100vh - 120px);
+}
+
+
+/* primary: "#C778DD",
+secondary: "#ABB2BF",
+background:"#282C33",
+white:"#FFFFFF" */
+
+.customeAnimate{
+    transition: all .5s;
+    animation: fan  .1s ease-in-out 0s infinite backwards ;
+}
+
+@keyframes fan {
+    0%{
+        transform: rotate(0deg);
+        box-shadow: 0 0 10px #fff;
+        border-radius: 0%;
+    }
+    50%{
+        box-shadow: 0 0 30px #fff;
+        border-radius: 30%;
+
+    }
+    100%{
+        transform: rotate(360deg);
+        box-shadow: 0 0 50px #fff;
+        border-radius: 50%;
+    }
+    
+}
+
+
+
+.button{
+    transition: all .3s;
+    cursor: pointer;
+    border:1px solid #c778dd;
+}
+
+.button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #c979df;
+    border-color: transparent;
+    color: #c778dd;
+}
+
+

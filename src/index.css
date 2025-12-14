@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+.ibm{
+  font-family: "IBM Plex Mono", monospace,sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto{
+  font-family: "Roboto Mono", monospace,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.source{
+  font-family: "Source Code Pro", monospace,sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.jetBranis{
+   font-family: "JetBrains Mono", monospace,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
