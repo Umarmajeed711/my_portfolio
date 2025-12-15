@@ -1,52 +1,116 @@
 import React from "react";
 import { SiExpress, SiNextdotjs } from "react-icons/si";
 
+const SkillBar = ({ name, icon, level, percent }) => {
+  return (
+    <div className="flex items-end gap-8 w-full">
+      {/* Icon */}
+      <div>
+        <div
+          className="
+          h-20 !w-20 border-[10px] rounded-full
+          flex justify-center items-center
+          hover:scale-105 transition duration-300 overflow-hidden
+        "
+          style={{ boxShadow: "0 0 25px #c778dd" }}
+        >
+          <img src={icon} alt={name} className="h-10 sm:h-12" />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col w-full">
+        <div className="flex justify-between text-theme-secondary ibm">
+          <span>&lt;{name}/&gt;</span>
+          <span className="text-sm">{level}</span>
+        </div>
+
+        <div
+          className="w-full h-2 bg-[#daabe9] rounded"
+          style={{ boxShadow: "0 0 10px #daabe9" }}
+        >
+          <div
+            className="h-2 bg-theme-primary rounded transition-all duration-700 ease-out"
+            style={{ width: percent, boxShadow: "0 0 5px #c778dd" }}
+          />
+        </div>
+      </div>
+    </div>
+
+    //  <div className="flex items-end gap-10  w-full ">
+    //           <div className="">
+    //             <div
+    //               className="text-center   h-20 !w-20  border-[10px]  rounded-full flex justify-center items-center  overflow-hidden hover:scale-[1.1] transition-all duration-400"
+    //               style={{ boxShadow: "0 0 30px #c778dd" }}
+    //             >
+    //               <img src="./html.png" alt="html" className="h-10 sm:h-12 " />
+    //             </div>
+    //           </div>
+    //           <div className="flex flex-col w-full  ">
+    //             <div className="flex justify-between items-center  ibm">
+    //               <span className="text-theme-secondary">&lt;HTML/&gt;</span>
+    //               <span>85%</span>
+    //             </div>
+    //             <div
+    //               className="w-full h-[10px] bg-[#daabe9] relative rounded"
+    //               style={{ boxShadow: "0 0 10px #daabe9" }}
+    //             >
+    //               <div
+    //                 className="w-[85%] text-theme-background h-[10px] px-2 font-bold text-end text-[10px] m-0 p-0 leading-none aboslute bg-theme-primary top-0   rounded"
+    //                 style={{ boxShadow: "0 0 5px #c778dd" }}
+    //               ></div>
+    //             </div>
+    //           </div>
+    //         </div>
+  );
+};
+
+const SkillCard = ({ icon, name }) => (
+  <div
+    className="
+
+       flex flex-col items-center gap-2
+    p-4 rounded-xl
+    border border-theme-secondary/20
+    hover:border-theme-primary
+    hover:-translate-y-1 hover:scale-105
+    transition-all duration-300
+    "
+  >
+    <img src={icon} alt={name} className="h-12 w-12 sm:h-16 sm:w-16" />
+    <p className="text-sm">{name}</p>
+  </div>
+);
+
 const Skills = () => {
-  let vercel = (
-    <svg
-      width="40px"
-      height="40px"
-      viewBox="0 0 76 65"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="#000000" />
-    </svg>
-  );
+  const languages = [
+    {
+      name: "HTML",
+      icon: "./html.png",
+      level: "Advanced",
+      percent: "85%",
+    },
+    {
+      name: "CSS",
+      icon: "./css3.png",
+      level: "Advanced",
+      percent: "85%",
+    },
+    {
+      name: "JavaScript",
+      icon: "./javascript.png",
+      level: "Intermediate",
+      percent: "80%",
+    },
+    {
+      name: "TypeScript",
+      icon: "./typescript.png",
+      level: "Intermediate",
+      percent: "75%",
+    },
+  ];
 
-  let vsCode = (
-    <svg
-      width="40px"
-      height="40px"
-      viewBox="0 0 128 128"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path fill="#007ACC" d="M4 32l64 32-64 32V32z" />
-      <path fill="#1F1F1F" d="M124 4l-36 36 36 36V4z" />
-    </svg>
-  );
-
-  let nextJs = <SiNextdotjs size={40} color="#fff" />;
-  let gsap = (
-    <svg
-      width="100%"
-      height="100%"
-      viewBox="0 0 256 256"
-      fill="#88CE02"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M0 0h256v256H0z" fill="none" />
-      <path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zm0 240c-61.9 0-112-50.1-112-112S66.1 16 128 16s112 50.1 112 112-50.1 112-112 112z" />
-      <path d="M168 64H88v128h80V64z" />
-    </svg>
-  );
-
-  // { id: 1, icon: <SiMongodb size={45} /> },
-  //     { id: 2, icon: <SiExpress size={45} /> },
-  //     { id: 3, icon: <SiReact size={45} /> },
-  //     { id: 4, icon: <SiNodedotjs size={45} /> },
-
-  const frameWorks = [
+  const frameworks = [
     {
       name: "React",
       icon: "./atom.png",
@@ -76,7 +140,7 @@ const Skills = () => {
     //   icon: gsap,
     // },
     {
-      name: "TanstackQuery",
+      name: "Tanstack Query",
       icon: "./bootstrap.png",
     },
   ];
@@ -99,7 +163,7 @@ const Skills = () => {
       icon: "./netlify.png",
     },
     {
-      name: "PostMan",
+      name: "Postman",
       icon: "./bootstrap.png",
     },
     {
@@ -126,15 +190,15 @@ const Skills = () => {
       icon: "./node-js.png",
     },
     {
-      name: "Mongo Db",
+      name: "MongoDB",
       icon: "./monog-db.png",
     },
     {
-      name: "PostgreSql",
+      name: "PostgreSQL",
       icon: "./elephant.png",
     },
     {
-      name: "MySql",
+      name: "MySQL",
       icon: "./database.png",
     },
   ];
@@ -165,14 +229,14 @@ const Skills = () => {
               <div className="h-28 w-28 border border-theme-secondary sm:!pl-20 sm:!-mt-5"></div>
             </div>
             <div className="flex justify-center">
-              <img src="./whitelogo.png" alt="" className="animate-bounce" />
+              <img src="./whitelogo.png" alt="" className="animate-none" />
             </div>
 
             <div className="flex justify-evenly">
               <img
                 src="./outline.png"
                 alt=""
-                className="sm:!ml-10 sm:mt-24 animate-spin"
+                className="sm:!ml-10 sm:mt-24 animate-none"
               />
 
               <img
@@ -187,130 +251,20 @@ const Skills = () => {
         {/* Languages Div */}
 
         <div className="col-span-1">
-          <div className="flex flex-col gap-5 h-full px-5 sm:px-10 lg:px-16 ">
+          <div className="flex flex-col gap-6 h-full px-5 sm:px-10 lg:px-16">
             <div className="text-theme-secondary text-xl source">
               &lt;Languages/&gt;
             </div>
 
-            {/* HTML */}
-            <div className="flex items-end gap-10  w-full ">
-              <div className="">
-                <div
-                  className="text-center   h-20 !w-20  border-[10px]  rounded-full flex justify-center items-center  overflow-hidden hover:scale-[1.1] transition-all duration-400"
-                  style={{ boxShadow: "0 0 30px #c778dd" }}
-                >
-                  <img src="./html.png" alt="html" className="h-10 sm:h-12 " />
-                </div>
-              </div>
-              <div className="flex flex-col w-full  ">
-                <div className="flex justify-between items-center  ibm">
-                  <span className="text-theme-secondary">&lt;HTML/&gt;</span>
-                  <span>85%</span>
-                </div>
-                <div
-                  className="w-full h-[10px] bg-[#daabe9] relative rounded"
-                  style={{ boxShadow: "0 0 10px #daabe9" }}
-                >
-                  <div
-                    className="w-[85%] text-theme-background h-[10px] px-2 font-bold text-end text-[10px] m-0 p-0 leading-none aboslute bg-theme-primary top-0   rounded"
-                    style={{ boxShadow: "0 0 5px #c778dd" }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            {/* CSS */}
-            <div className="flex items-end gap-10  w-full">
-              <div className="">
-                <div
-                  className="text-center   h-20 !w-20  border-[10px]  rounded-full flex justify-center items-center overflow-hidden hover:scale-[1.1] transition-all duration-400 "
-                  style={{ boxShadow: "0 0 30px #c778dd" }}
-                >
-                  <img src="./css3.png" alt="css" className="h-10 sm:h-12 " />
-                </div>
-              </div>
-              <div className="flex flex-col w-full">
-                <div className="flex justify-between items-center  ibm">
-                  <span className="text-theme-secondary">&lt;CSS/&gt;</span>
-                  <span>85%</span>
-                </div>
-                <div
-                  className="w-full h-[10px] bg-[#daabe9] relative rounded"
-                  style={{ boxShadow: "0 0 10px #daabe9" }}
-                >
-                  <div
-                    className="w-[85%] text-theme-background h-[10px] px-2 font-bold text-end text-[10px] m-0 p-0 leading-none aboslute bg-theme-primary top-0   rounded"
-                    style={{ boxShadow: "0 0 5px #c778dd" }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Javascript */}
-            <div className="flex items-end gap-10  w-full">
-              <div className="">
-                <div
-                  className="text-center   h-20 !w-20  border-[10px]  rounded-full flex justify-center items-center overflow-hidden hover:scale-[1.1] transition-all duration-400"
-                  style={{ boxShadow: "0 0 30px #c778dd" }}
-                >
-                  <img
-                    src="./javascript.png"
-                    alt=""
-                    className="h-10 sm:h-12 rounded-full"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col w-full ">
-                <div className="flex justify-between items-center  ibm">
-                  <span className="text-theme-secondary">
-                    &lt;JavaScript/&gt;
-                  </span>
-                  <span>80%</span>
-                </div>
-                <div
-                  className="w-full h-[10px] bg-[#daabe9] relative rounded"
-                  style={{ boxShadow: "0 0 10px #daabe9" }}
-                >
-                  <div
-                    className="w-[80%] text-theme-background h-[10px] px-2 font-bold text-end text-[10px] m-0 p-0 leading-none aboslute bg-theme-primary top-0   rounded"
-                    style={{ boxShadow: "0 0 5px #c778dd" }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            {/* TypeScript */}
-            <div className="flex items-end gap-10  w-full">
-              <div className="">
-                <div
-                  className="text-center   h-20 !w-20  border-[10px]  rounded-full flex justify-center items-center overflow-hidden hover:scale-[1.1] transition-all duration-400 "
-                  style={{ boxShadow: "0 0 30px #c778dd" }}
-                >
-                  <img
-                    src="./typescript.png"
-                    alt=""
-                    className="h-10 sm:h-12 rounded-full "
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col w-full">
-                <div className="flex justify-between items-center  ibm">
-                  <span className="text-theme-secondary">
-                    &lt;TypeScript/&gt;
-                  </span>
-                  <span>75%</span>
-                </div>
-                <div
-                  className="w-full h-[10px] bg-[#daabe9] relative rounded"
-                  style={{ boxShadow: "0 0 10px #daabe9" }}
-                >
-                  <div
-                    className="w-[75%] text-theme-background px-2 h-[10px] font-bold text-end text-[10px] m-0 p-0 leading-none aboslute bg-theme-primary top-0   rounded"
-                    style={{ boxShadow: "0 0 5px #c778dd" }}
-                  ></div>
-                </div>
-              </div>
-            </div>
+            {languages?.map((lang, i) => (
+              <SkillBar
+                key={i}
+                name={lang.name}
+                icon={lang.icon}
+                level={lang.level}
+                percent={lang.percent}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -321,23 +275,28 @@ const Skills = () => {
         <div className="col-span-3">
           <div className="flex flex-col justify-center  items-center">
             <div className="text-2xl font-bold mt-5 capitalize jetBranis">
-              Libraries & FrameWorks
+              Libraries & Frameworks
             </div>
 
             <div className="flex gap-5 m-5 justify-center items-center">
               <div className="flex gap-8 flex-wrap justify-center">
-                {frameWorks?.map((each, i) => {
+                {frameworks?.map((each, i) => {
                   return (
-                    <div key={i} className="flex flex-col gap-1 items-center">
-                      <div>
-                        <img
-                          src={each?.icon}
-                          alt={each?.icon}
-                          className="h-12 w-12 sm:h-16 sm:w-16 "
-                        />
-                      </div>
-                      <p>{each?.name}</p>
-                    </div>
+                    // <div key={i} className="flex flex-col gap-1 items-center">
+                    //   <div>
+                    //     <img
+                    //       src={each?.icon}
+                    //       alt={each?.icon}
+                    //       className="h-12 w-12 sm:h-16 sm:w-16 "
+                    //     />
+                    //     {/* <SiExpress size={45} />  */}
+                    //   </div>
+                    //   <p>{each?.name}</p>
+                    // </div>
+
+                    <SkillCard key={i} icon={each.icon} name={each.name} />
+ 
+ 
                   );
                 })}
               </div>
@@ -358,16 +317,7 @@ const Skills = () => {
               <div className="flex gap-4 flex-wrap justify-center">
                 {tools?.map((each, i) => {
                   return (
-                    <div key={i} className="flex flex-col gap-1 items-center">
-                      <div>
-                        <img
-                          src={each?.icon}
-                          alt=""
-                          className="h-12 w-12 sm:h-16 sm:w-16 "
-                        />
-                      </div>
-                      <p>{each?.name}</p>
-                    </div>
+                    <SkillCard key={i} icon={each.icon} name={each.name} />
                   );
                 })}
               </div>
@@ -388,16 +338,7 @@ const Skills = () => {
               <div className="flex gap-4 flex-wrap justify-center">
                 {backend?.map((each, i) => {
                   return (
-                    <div key={i} className="flex flex-col gap-1 items-center">
-                      <div>
-                        <img
-                          src={each?.icon}
-                          alt=""
-                          className="h-12 w-12 sm:h-16 sm:w-16 "
-                        />
-                      </div>
-                      <p>{each?.name}</p>
-                    </div>
+                   <SkillCard key={i} icon={each.icon} name={each.name} />
                   );
                 })}
               </div>
@@ -405,7 +346,6 @@ const Skills = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };

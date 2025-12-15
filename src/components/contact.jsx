@@ -28,8 +28,8 @@ export const ContactBoat = () => {
 
         <div className="col-span-1 flex justify-center items-center flex-col">
           <div
-            className="flex flex-col gap-y-1 text-[20px] mt-5  mb-0 m-1 sm:mb-0 sm:m-20 p-3    px-5  bg-theme-background rounded animate-pulse hover:animate-none focus:animate-none transition duration-1000"
-            style={{ boxShadow: "0 0 5px #c778dd" }}
+            className="flex flex-col gap-y-1 text-[20px] mt-5  mb-0  m-1 sm:mb-0 sm:m-20 z-10 p-3  px-5  bg-theme-background rounded animate-pulse  hover:animate-none focus:animate-none transition duration-1000"
+            style={{ boxShadow: "0 0 10px #c778dd" }}
           >
             <p className="text-[15px] sm:text-[20px] font-semibold bg-transparent text-theme-primary source w-full ">
               Message me here!

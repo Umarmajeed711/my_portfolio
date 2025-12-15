@@ -143,17 +143,19 @@ const Home = () => {
         <div className="home my-10 md:my-0 gap-3 px-4 md:px-8 lg:px-20  w-full  grid grid-cols-1 md:grid-cols-3 ">
           {/* hero div */}
           <div className="flex flex-col justify-center gap-1 sm:gap-4 col-span-1 md:col-span-2 h-full source">
-            <p className="text-3xl md:text-4xl lg:text-[50px] flex items-center gap-2  text-gray-400">
-              Hello World /&gt;;
+            <p className="text-xl md:text-2xl text-theme-secondary">
+              Hello World /&gt;
             </p>
 
-            <p className="text-3xl md:text-4xl lg:text-[50px]  text-theme-primary ">
-              I'm Muhammad Umar
+            <p className="text-4xl md:text-5xl lg:text-[56px] font-bold text-theme-primary">
+              Muhammad Umar
             </p>
 
-            <div className="text-2xl  lg:text-[45px] sm:text-3xl md:text-4xl   leading-7 font-bold md:font-semibold flex gap-1 items-center">
-              <span className=" ">Mern Stack Developer</span>
-
+            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-theme-white flex items-center gap-2">
+              MERN Stack Developer
+              <span className="hover:scale-110 transition">
+                {mernIcons[index].icon}
+              </span>
               {/* <ReactTyped
                 strings={["Developer", "SEO EXPERT", "SMM Expert"]}
                 typeSpeed={50}
@@ -178,16 +180,7 @@ const Home = () => {
                   </div>
                 ))}
               </div> */}
-
-              <div className="hover:scale-110 transition-all duration-300">
-                {mernIcons[index].icon}
-              </div>
-            </div>
-
-            {/* <p className="text-sm">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla
-                doloribus voluptate rem nemo voluptatem
-              </p> */}
+            </p>
 
             <div>
               <a
@@ -197,6 +190,24 @@ const Home = () => {
               >
                 Hire me /&gt;
               </a>
+
+              <a
+  href="mailto:mu493790@gmail.com?subject=Hire%20Request"
+  className="
+    inline-flex items-center gap-2
+    mt-4 px-5 py-2
+    border border-theme-primary
+    text-theme-primary
+    hover:bg-theme-primary hover:text-black
+    transition-all duration-300
+    rounded
+    ibm
+  "
+>
+  Hire Me
+  <ArrowUpRight size={18} />
+</a>
+
               {/* <button >
                   
                   
@@ -214,7 +225,7 @@ const Home = () => {
               />
             </div>
             <div>
-              {/* <img src="./Frame 58.png" alt="" /> */}
+           
               <div
                 className="flex flex-start gap-2 items-center relative  group  px-4 source border hover:border-theme-primary shadow-white shadow-lg hover:shadow-theme-primary  font-medium  leading-9 transition-all duration-300"
                 style={{
@@ -314,13 +325,13 @@ const Home = () => {
   "
               >
                 View all
-                <ArrowUpRight size={18} 
-                 className="
+                <ArrowUpRight
+                  size={18}
+                  className="
       transition-transform duration-300 ease-out
       group-hover:translate-x-1 group-hover:-translate-y-1
     "
-    
-    />
+                />
                 <span
                   className="
       absolute left-0 -bottom-0.5
@@ -346,7 +357,7 @@ const Home = () => {
 
         <About />
         {/* <Contact /> */}
-        <ContactBoat/>
+        <ContactBoat />
 
         <Footer />
       </div>

@@ -16,10 +16,10 @@ export const Footer = () => {
                     <div className='flex gap-10'>
                         <div className='flex gap-2 items-center'>
                             <img src="./whitelogo.png" alt="logo" className='h-5 w-5' />
-                            <span className='text-xl font-medium'>Alex</span>
+                            <span className='text-xl font-medium'>M.Umar</span>
                         </div>
                         <div className='text-theme-secondary'>
-                            <a href="mailto:abc@gmail.com">alex@gmail.com</a>
+                            <a href="mailto:mu493790@gmail.com">mu493790@gmail.com</a>
                         </div>
                     </div>
 
