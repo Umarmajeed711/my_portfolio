@@ -183,17 +183,17 @@ const Home = () => {
             </p>
 
             <div>
-              <a
+              {/* <a
                 href="mailto:mu493790@gmail.com?subject=Hire%20Request&body=Hi%20Muhammad Umar%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20hire%20you."
                 target="_blank"
                 className="px-2 py-1  button ibm"
               >
                 Hire me /&gt;
-              </a>
+              </a> */}
 
               <a
-  href="mailto:mu493790@gmail.com?subject=Hire%20Request"
-  className="
+                href="mailto:mu493790@gmail.com?subject=Hire%20Request"
+                className="
     inline-flex items-center gap-2
     mt-4 px-5 py-2
     border border-theme-primary
@@ -203,15 +203,10 @@ const Home = () => {
     rounded
     ibm
   "
->
-  Hire Me
-  <ArrowUpRight size={18} />
-</a>
-
-              {/* <button >
-                  
-                  
-                </button> */}
+              >
+                Hire Me
+                <ArrowUpRight size={18} />
+              </a>
             </div>
           </div>
 
@@ -225,7 +220,6 @@ const Home = () => {
               />
             </div>
             <div>
-           
               <div
                 className="flex flex-start gap-2 items-center relative  group  px-4 source border hover:border-theme-primary shadow-white shadow-lg hover:shadow-theme-primary  font-medium  leading-9 transition-all duration-300"
                 style={{
@@ -254,7 +248,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="bg-theme-background pt-6  hidden md:block source">
+        {/* <div className="bg-theme-background pt-6  hidden md:block source">
           <div className="flex justify-center gap-2 items-center pb-5">
             <div
               className={` h-10 w-10 md:h-12 md:w-12 bg-theme-background  transition-all duration-300  md:mr-5 ${
@@ -294,7 +288,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="px-4 md:px-8 lg:px-20  bg-theme-background  w-full ">
           <div className="flex justify-between mt-10 sm:mt-[130px]  md:my-5">

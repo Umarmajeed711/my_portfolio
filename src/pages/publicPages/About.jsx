@@ -2,6 +2,7 @@ import React from "react";
 import Projects from "../../components/Projects";
 import Navbar from "../../components/navbar";
 import { Footer } from "../../components/footer";
+import BulbSection from "../../components/BulbSection";
 
 const About = () => {
   const work = [
@@ -95,6 +96,8 @@ const About = () => {
             </div>
           </div>
 
+          {/* What can i do */}
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
             <div className="col-span-1 flex justify-center items-center ">
               <img
@@ -106,7 +109,10 @@ const About = () => {
 
             <div className="col-span-1 ">
               <div className="flex flex-col gap-4 py-0 sm:py-10 text-[18px] roboto">
-                <ul className="flex flex-col gap-2" style={{listStyle:"circle"}}>
+                <ul
+                  className="flex flex-col gap-2"
+                  style={{ listStyle: "circle" }}
+                >
                   {work?.map((each, i) => {
                     return (
                       <li className="text-theme-secondary" key={i}>
@@ -202,15 +208,23 @@ const About = () => {
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="col-span-1">
-              <div className="h-80 w-full flex justify-center items-center">
-                <img src="./hero.png" alt="" className="h-full w-[50%]" />
+          <div className="flex justify-between my-5">
+            <div className="flex justify-center items-center gap-2">
+              <div>
+                <span className="text-theme-primary text-2xl">#</span>
+                <span className="text-[22px] source">FUn Facts</span>
               </div>
+
+              <div className="h-[1px] sm:w-96 md:w-[500px] lg:w-[700px]  bg-theme-primary"></div>
             </div>
           </div>
-        </div>
 
+          <BulbSection />
+
+          
+        </div>
         <Footer />
       </div>
     </>

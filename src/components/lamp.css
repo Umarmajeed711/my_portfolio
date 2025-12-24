@@ -1,0 +1,66 @@
+.lamp-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Wire */
+.lamp-wire {
+  width: 2px;
+  height: 120px;
+  background: #666;
+  cursor: pointer;
+  position: relative;
+}
+
+.wire-handle {
+  position: absolute;
+  bottom: -10px;
+  left: -6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #C778DD;
+  box-shadow: 0 0 10px #C778DD;
+}
+
+/* Lamp */
+.lamp {
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.lamp-off {
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+.lamp-on {
+  filter: drop-shadow(0 0 20px #C778DD)
+          drop-shadow(0 0 40px #C778DD55);
+}
+
+/* Text */
+.lamp-text {
+  font-size: 12px;
+  opacity: 0.7;
+  color: #aaa;
+}
+
+/* Contact Form Reveal */
+.contact-reveal {
+  margin-top: 50px;
+  animation: reveal 0.6s ease-out forwards;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

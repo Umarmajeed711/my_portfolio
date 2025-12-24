@@ -226,3 +226,12 @@
   color:#C778DD !important ;
   transform: scale(1.2);
 }
+
+
+
+/* globals.css */
+.glow-purple {
+  box-shadow: 0 0 15px #C778DD, 0 0 30px #C778DD55;
+}
+
+
