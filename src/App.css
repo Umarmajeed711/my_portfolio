@@ -235,3 +235,44 @@
 }
 
 
+ .form-wrapper {
+   opacity: 0;
+  transform: translateY(40px) scale(0.5);
+  pointer-events: none;
+  transition: all 0.8s cubic-bezier(.4,0,.2,1);
+ 
+}
+
+.form-show {
+  opacity: 1;
+  transform: translateY(40px) scale(1);
+  pointer-events: auto;
+  transition-delay: .5s !important;
+  
+  box-shadow:
+    0 0 100px rgba(199,120,221,0.25),
+    0 0 250px rgba(199,120,221,0.25),
+    inset 0 0 30px rgba(199,120,221,0.15);
+} 
+
+/* FORM */
+/* .form-wrapper {
+  opacity: 0;
+  transform: translateY(80px);
+  pointer-events: none;
+  transition: all .8s ease ;
+  transition-delay: .5s !important;
+}
+
+.form-show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+
+  box-shadow:
+    0 0 50px rgba(199,120,221,0.25),
+    inset 0 0 80px rgba(199,120,221,0.15);
+} */
+
+
+
