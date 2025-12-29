@@ -200,12 +200,18 @@ const Home = () => {
     text-theme-primary
     hover:bg-theme-primary hover:text-black
     transition-all duration-300
-    rounded
+    rounded group relative
     ibm
   "
               >
                 Hire Me
-                <ArrowUpRight size={18} />
+                <ArrowUpRight
+                  size={18}
+                  className="
+      transition-transform duration-300 ease-out
+      group-hover:translate-x-1 group-hover:-translate-y-1
+    "
+                />
               </a>
             </div>
           </div>
@@ -302,13 +308,6 @@ const Home = () => {
             </div>
 
             <div>
-              {/* <a
-                className="text-xl ibm flex gap-1 items-center"
-                href="/portfolio"
-              >
-                view-all <ArrowUpRight />
-              </a> */}
-
               <a
                 href="/portfolio"
                 className="

@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import React from "react";
 
 export const About = () => {
@@ -34,8 +35,35 @@ export const About = () => {
             </div>
 
             <div>
-              <a className="px-2 py-1  button ibm " href="/about-me">
+              {/* <a className="px-2 py-1  button ibm " href="/about-me">
                 Read More /&gt;
+              </a> */}
+               <a
+                href="/about-me"
+                className="
+    group inline-flex items-center gap-1.5
+    text-[18px] font-medium
+    text-[#C778DD]
+    relative
+  "
+              >
+                Read More 
+                <ArrowUpRight
+                  size={18}
+                  className="
+      transition-transform duration-300 ease-out
+      group-hover:translate-x-1 group-hover:-translate-y-1
+    "
+                />
+                <span
+                  className="
+      absolute left-0 -bottom-0.5
+      w-0 h-[1px]
+      bg-[#C778DD]
+      transition-all duration-300
+      group-hover:w-full
+    "
+                />
               </a>
             </div>
           </div>
