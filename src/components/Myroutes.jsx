@@ -12,7 +12,7 @@ import { GlobalContext } from "../context/Context";
 export const Myroutes = () => {
   let { state, dispatch } = useContext(GlobalContext);
 
-  let isLogin = !state?.isLogin;
+  let isLogin = state?.isLogin;
 
   return (
     <div>

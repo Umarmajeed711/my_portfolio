@@ -23,6 +23,7 @@ import Swal from "sweetalert2";
 import { GlobalContext } from "../../context/Context";
 import { ArrowUpRight } from "lucide-react";
 import { ContactBoat } from "../../components/contact";
+import CurrentlyWorkingOn from "../../components/currentlyWorking";
 
 const Home = () => {
   const [bulbOn, setBulbOn] = useState(false);
@@ -156,41 +157,9 @@ const Home = () => {
               <span className="hover:scale-110 transition">
                 {mernIcons[index].icon}
               </span>
-              {/* <ReactTyped
-                strings={["Developer", "SEO EXPERT", "SMM Expert"]}
-                typeSpeed={50}
-                loop
-                backSpeed={20}
-                cursorChar=">"
-                showCursor={true}
-              /> */}
-              {/* <div
-                className="icons-row"
-                style={{ display: "flex", gap: "20px" }}
-              >
-                {mernIcons.map((item, index) => (
-                  <div
-                    key={item.id}
-                    style={{
-                      opacity: index <= visibleIndex ? 1 : 0,
-                      transition: "opacity 0.8s ease",
-                    }}
-                  >
-                    {item.icon}
-                  </div>
-                ))}
-              </div> */}
             </p>
 
             <div>
-              {/* <a
-                href="mailto:mu493790@gmail.com?subject=Hire%20Request&body=Hi%20Muhammad Umar%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20hire%20you."
-                target="_blank"
-                className="px-2 py-1  button ibm"
-              >
-                Hire me /&gt;
-              </a> */}
-
               <a
                 href="mailto:mu493790@gmail.com?subject=Hire%20Request"
                 className="
@@ -209,7 +178,7 @@ const Home = () => {
                   size={18}
                   className="
       transition-transform duration-300 ease-out
-      group-hover:translate-x-1 group-hover:-translate-y-1
+      group-hover:translate-x-1 group-hover:-translate-y-1 bg-transparent 
     "
                 />
               </a>
@@ -243,7 +212,9 @@ const Home = () => {
                 </span>
                 <div
                   onClick={() => {
-                    setShowModal(!showModal);
+                    setShowModal(true);
+                    setProjectData()
+
                   }}
                   className="absolute top-0 right-0 px-2 opacity-0 group-hover:opacity-100"
                 >
@@ -362,8 +333,9 @@ const Home = () => {
             setProjectData({});
           }}
           isOpen={showModal}
+          className="!h-64"
         >
-          <AddProject
+          <CurrentlyWorkingOn
             onclose={() => {
               setShowModal(false);
               setProjectData({});

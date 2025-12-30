@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children,className }) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -12,7 +12,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         >
           {/* Modal Body */}
           <motion.div
-            className="bg-[#c778dd] p-2 rounded-xl shadow-xl h-[600px] overflow-hidden max-h-[90%] w-[90%] max-w-lg relative"
+            className={`bg-[#c778dd] p-2 rounded-xl shadow-xl h-[600px] overflow-hidden max-h-[90%] w-[90%] max-w-lg relative ${className || ""}`}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
