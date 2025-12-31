@@ -45,7 +45,7 @@ export const Form = () => {
         setloading(false);
         const Toast = Swal.mixin({
           toast: true,
-          position: "top-end",
+          position: "bottom-left",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
@@ -90,7 +90,7 @@ export const Form = () => {
                 />
               </div>
 
-              {/* {showForm && ( */}
+              
                 <div  className={`col-span-2 poppins text-xl  font-light flex justify-center  form-wrapper ${showForm ? "form-show" : ""}`}>
                   {/* Send message form */}
                   <form
@@ -207,7 +207,7 @@ export const Form = () => {
                     </div>
                   </form>
                 </div>
-              {/* )} */}
+             
             </div>
           </div>
         </div>

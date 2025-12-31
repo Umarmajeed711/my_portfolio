@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 const Dashboard = () => {
   const { state } = useContext(GlobalContext);
 
-  let isAdmin = state?.user.isAdmin;
+  let isAdmin = state?.isAdmin;
 
   const [showModal, setShowModal] = useState(false);
   const [projects, setProjects] = useState([]);
@@ -68,7 +68,7 @@ const Dashboard = () => {
           icon: "success",
           title: "Project deleted successfully",
           toast: true,
-          position: "top-end",
+          position: "bottom-left",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
@@ -79,13 +79,47 @@ const Dashboard = () => {
           icon: "error",
           title: error?.response?.data?.message || "Something went wrong",
           toast: true,
-          position: "top-end",
+          position: "bottom-left",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
         });
       }
     }
+  };
+
+  const onSuccess = ({ position, icon, message }) => {
+    setProjectData({});
+    setShowModal(false);
+    dynamicToast({ position, icon, message });
+    getProjects();
+  };
+
+  const OnError = ({ position, icon, message }) => {
+    dynamicToast({ position, icon, message });
+  };
+
+  const dynamicToast = ({
+    position = "bottom-left",
+    icon = "success",
+    message = "",
+  }) => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: position,
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: icon,
+      title: message,
+    });
   };
 
   return (
@@ -122,7 +156,7 @@ const Dashboard = () => {
             projects={projects}
             loading={loading}
             onEdit={editProject}
-            Admin={isAdmin}
+            isAdmin={isAdmin}
             deleteProject={deleteProject}
           />
         </div>
@@ -144,6 +178,8 @@ const Dashboard = () => {
               setProjectData({});
             }}
             projectData={projectData}
+            OnSuccess={onSuccess}
+            OnError={OnError}
           />
         </Modal>
       )}

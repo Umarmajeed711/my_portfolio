@@ -18,7 +18,7 @@ import {
   FolderKanban,
 } from "lucide-react";
 
-const CurrentlyWorkingOn = ({ onclose = () => {}, projectData }) => {
+const CurrentlyWorkingOn = ({ onclose = () => {}, titleData = {},OnSuccess = () => {},OnError  = () => {} }) => {
   let { state, dispatch } = useContext(GlobalContext);
 
   const baseUrl = state?.baseUrl;
@@ -30,7 +30,7 @@ const CurrentlyWorkingOn = ({ onclose = () => {}, projectData }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    addProjectFormik.setFieldValue("title", projectData?.title);
+    addProjectFormik.setFieldValue("title", titleData?.title);
   }, []);
 
   const addValidation = yup.object({
@@ -48,53 +48,39 @@ const CurrentlyWorkingOn = ({ onclose = () => {}, projectData }) => {
       console.log(values);
 
       try {
-        let response = await api.post(`/addTitle`, {
+        let response = await api.post(`/addTitle?id=${titleData?._id}`, {
           title: values?.title,
         });
 
         console.log(response);
 
-        setloading(false);
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Add Title successfully",
-        });
+       
 
         addProjectFormik.resetForm();
-        onclose();
+        OnSuccess({icon:"success",message:response?.data?.message || "Update Title Successfully",response:response?.data});
       } catch (error) {
         setloading(false);
-        console.log(error?.response.data?.message);
+        console.log(error?.response?.data?.message);
 
-        setApiError(error?.response.data?.message || "Something went wrong");
+        OnError({icon:"warning",title:error?.response.data?.message || "Something went wrong"});
 
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "bottom-start",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
-          icon: "warning",
-          title: error?.response.data?.message || "Something went wrong",
-        });
+        // setApiError(error?.response.data?.message || "Something went wrong");
+
+        // const Toast = Swal.mixin({
+        //   toast: true,
+        //   position: "bottom-start",
+        //   showConfirmButton: false,
+        //   timer: 3000,
+        //   timerProgressBar: true,
+        //   didOpen: (toast) => {
+        //     toast.onmouseenter = Swal.stopTimer;
+        //     toast.onmouseleave = Swal.resumeTimer;
+        //   },
+        // });
+        // Toast.fire({
+        //   icon: "warning",
+        //   title: error?.response.data?.message || "Something went wrong",
+        // });
       } finally {
         setloading(false);
       }
@@ -114,7 +100,7 @@ const CurrentlyWorkingOn = ({ onclose = () => {}, projectData }) => {
           className=" px-4   flex flex-col gap-4 items-center overflow-hidden h-full w-full "
         >
           <p className="jetBranis text-xl sm:text-2xl md:text-3xl font-medium sm:font-semibold mt-2   ">
-            {projectData?._id ? "Update" : "Add"} Title
+            {titleData?._id ? "Update" : "Add"} Title
           </p>
 
           <div className="flex flex-col gap-4 w-full overflow-x-hidden overflow-y-auto  h-full custom-scrollbar">
@@ -136,7 +122,7 @@ const CurrentlyWorkingOn = ({ onclose = () => {}, projectData }) => {
                   }}
                   disabled={loading}
                   className="inputField"
-                  placeholder="new-project"
+                  placeholder="Title"
                 />
 
                 <div className="error-wrapper">
@@ -163,7 +149,7 @@ const CurrentlyWorkingOn = ({ onclose = () => {}, projectData }) => {
                     <span className="w-2 h-2 bg-white rounded-full animate-bounce"></span>
                   </div>
                 ) : (
-                  "Add Title"
+                  "Update Title"
                 )}
               </button>
             </div>

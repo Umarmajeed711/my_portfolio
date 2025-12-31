@@ -21,8 +21,7 @@ const App = () => {
       dispatch({ type: "USER_LOGOUT" });
     } finally {
       setLoading(false);
-        console.log("state", state?.isLogin);
-
+      console.log("state", state?.isLogin);
     }
   };
 
@@ -34,7 +33,23 @@ const App = () => {
     <div>
       {/* <Navbar/>
       <Home/> */}
-      {loading ? <div>...loading</div> : <Myroutes />}
+      {loading ? (
+        <div className="fixed inset-0 flex flex-col items-center justify-center bg-theme-background">
+          <div className="text-theme-primary font-mono text-lg animate-pulse">
+            Initializing Portfolio
+          </div>
+
+          <div className="mt-4 w-16 h-1 bg-theme-secondary/20 rounded overflow-hidden">
+            <div className="w-1/2 h-full bg-theme-primary animate-[loading_1.2s_infinite]"></div>
+          </div>
+
+          <p className="mt-4 text-xs text-theme-secondary tracking-widest uppercase">
+            Muhammad Umar · MERN Stack
+          </p>
+        </div>
+      ) : (
+        <Myroutes />
+      )}
     </div>
   );
 };

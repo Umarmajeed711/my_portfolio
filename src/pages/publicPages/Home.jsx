@@ -21,16 +21,17 @@ import api from "../../components/api";
 import AddProject from "../../components/addProject";
 import Swal from "sweetalert2";
 import { GlobalContext } from "../../context/Context";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Pencil } from "lucide-react";
 import { ContactBoat } from "../../components/contact";
 import CurrentlyWorkingOn from "../../components/currentlyWorking";
+import Skeleton from "@mui/material/Skeleton";
 
 const Home = () => {
   const [bulbOn, setBulbOn] = useState(false);
 
   const { state } = useContext(GlobalContext);
 
-  let isAdmin = state?.user.isAdmin;
+  let isAdmin = state?.isAdmin;
 
   const [showModal, setShowModal] = useState(false);
   const [projectData, setProjectData] = useState({});
@@ -46,6 +47,7 @@ const Home = () => {
   const [visibleIndex, setVisibleIndex] = useState(0);
 
   useEffect(() => {
+    
     const interval = setInterval(() => {
       setVisibleIndex((prev) =>
         prev < mernIcons.length - 1 ? prev + 1 : prev
@@ -81,8 +83,27 @@ const Home = () => {
     }
   };
 
+  const [title, setTitle] = useState({});
+  const [titleLoading, setTitleLoading] = useState(false);
+  const [showTitleModal, setShowTitleModal] = useState(false);
+
+  const getTitle = async () => {
+    setTitleLoading(true);
+
+    try {
+      let response = await api.get("title");
+
+      setTitle(response?.data?.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setTitleLoading(false);
+    }
+  };
+
   useEffect(() => {
     getProjects();
+    getTitle();
   }, [toggle]);
 
   const editProject = (project) => {
@@ -116,7 +137,7 @@ const Home = () => {
           icon: "success",
           title: "Project deleted successfully",
           toast: true,
-          position: "top-end",
+          position: "bottom-left",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
@@ -127,13 +148,53 @@ const Home = () => {
           icon: "error",
           title: error?.response?.data?.message || "Something went wrong",
           toast: true,
-          position: "top-end",
+          position: "bottom-left",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
         });
       }
     }
+  };
+
+  const titleSuccess = ({ position, icon, message, response }) => {
+    setTitle(response?.data);
+    setShowTitleModal(false);
+    dynamicToast({ position, icon, message });
+  };
+
+  const onSuccess = ({ position, icon, message }) => {
+    setProjectData({});
+    setShowModal(false);
+    dynamicToast({ position, icon, message });
+    getProjects()
+  };
+
+  const OnError = ({ position, icon, message }) => {
+    dynamicToast({ position, icon, message });
+  };
+
+  const dynamicToast = ({
+    position = "bottom-left",
+    icon = "success",
+    message = "",
+  }) => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: position,
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+    Toast.fire({
+      icon: icon,
+      title: message,
+    });
   };
 
   return (
@@ -208,18 +269,25 @@ const Home = () => {
                   Currently working on
                 </span>
                 <span className="text-[14px] md:text-[12px] lg:text-[15px] jetBranis">
-                  Portfolio
+                  {!titleLoading ? (
+                    title?.title
+                  ) : (
+                    <div className="w-12 h-2 bg-slate-200 animate-pulse"></div>
+                  )}
                 </span>
-                <div
-                  onClick={() => {
-                    setShowModal(true);
-                    setProjectData()
-
-                  }}
-                  className="absolute top-0 right-0 px-2 opacity-0 group-hover:opacity-100"
-                >
-                  //
-                </div>
+                {isAdmin ? (
+                  <div
+                    onClick={() => {
+                      setShowTitleModal(true);
+                    }}
+                    className="absolute top-2 right-2 px-2 opacity-0 group-hover:opacity-100"
+                  >
+                    <Pencil
+                      size={18}
+                      className="edit hover:!text-theme-primary"
+                    />
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -312,7 +380,7 @@ const Home = () => {
             projects={projects}
             loading={loading}
             onEdit={editProject}
-            Admin={isAdmin}
+            isAdmin={isAdmin}
             deleteProject={deleteProject}
           />
         </div>
@@ -326,6 +394,27 @@ const Home = () => {
         <Footer />
       </div>
 
+      {showTitleModal && (
+        <Modal
+          onClose={() => {
+            setShowTitleModal(false);
+            // setTitle({});
+          }}
+          isOpen={showTitleModal}
+          className="!h-64"
+        >
+          <CurrentlyWorkingOn
+            onclose={() => {
+              setShowTitleModal(false);
+              // setTitle({});
+            }}
+            titleData={title}
+            OnSuccess={titleSuccess}
+            OnError={OnError}
+          />
+        </Modal>
+      )}
+
       {showModal && (
         <Modal
           onClose={() => {
@@ -333,14 +422,15 @@ const Home = () => {
             setProjectData({});
           }}
           isOpen={showModal}
-          className="!h-64"
         >
-          <CurrentlyWorkingOn
+          <AddProject
             onclose={() => {
               setShowModal(false);
               setProjectData({});
             }}
             projectData={projectData}
+            OnSuccess={onSuccess}
+            OnError={OnError}
           />
         </Modal>
       )}

@@ -40,7 +40,7 @@ export const ContactForm = () => {
         setloading(false);
         const Toast = Swal.mixin({
           toast: true,
-          position: "top-end",
+          position: "bottom-left",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,

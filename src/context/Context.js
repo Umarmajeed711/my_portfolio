@@ -7,8 +7,8 @@ let data = {
     user: {},
     isLogin: false,
     baseUrl: 'http://localhost:5002/api/v1',
-    baseSocketIo:  window.location.href.split(":")[0] == "http" ? "http://localhost:5002" : ""
-    // isAdmin:false
+    baseSocketIo:  window.location.href.split(":")[0] == "http" ? "http://localhost:5002" : "",
+    isAdmin:false
 
 }
 

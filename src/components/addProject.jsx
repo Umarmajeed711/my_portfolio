@@ -18,7 +18,12 @@ import {
   FolderKanban,
 } from "lucide-react";
 
-const AddProject = ({ onclose = () => {} , projectData}) => {
+const AddProject = ({
+  onclose = () => {},
+  projectData = {},
+  OnSuccess = () => {},
+  OnError = () => {},
+}) => {
   let { state, dispatch } = useContext(GlobalContext);
 
   const fileInputRef = useRef(null);
@@ -34,14 +39,14 @@ const AddProject = ({ onclose = () => {} , projectData}) => {
 
   useEffect(() => {
     console.log("project Data", projectData);
-    addProjectFormik.setFieldValue("title",projectData?.title);
-    addProjectFormik.setFieldValue("description",projectData?.description);
-    addProjectFormik.setFieldValue("live_link",projectData?.live_link);
-    addProjectFormik.setFieldValue("code_link",projectData?.code_link);
-    addProjectFormik.setFieldValue("image",projectData?.image);
-    addProjectFormik.setFieldValue("isTopProject",projectData?.isTopProject);
-    setPreview(projectData?.image)
-  },[])
+    addProjectFormik.setFieldValue("title", projectData?.title);
+    addProjectFormik.setFieldValue("description", projectData?.description);
+    addProjectFormik.setFieldValue("live_link", projectData?.live_link);
+    addProjectFormik.setFieldValue("code_link", projectData?.code_link);
+    addProjectFormik.setFieldValue("image", projectData?.image);
+    addProjectFormik.setFieldValue("isTopProject", projectData?.isTopProject);
+    setPreview(projectData?.image);
+  }, []);
 
   const addValidation = yup.object({
     title: yup.string().required("This Field is required"),
@@ -82,63 +87,57 @@ const AddProject = ({ onclose = () => {} , projectData}) => {
       console.log("Form dAta", formData);
 
       try {
-        let response = await api.post(`/project?id=${projectData?._id}`, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
+        let response = await api.post(
+          `/project?id=${projectData?._id || ""}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
 
         console.log(response);
 
         setloading(false);
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
-          icon: "success",
-          title: "Add project successfully",
-        });
+        // navigate("/dashbaord")
 
         addProjectFormik.resetForm();
-        navigate("/dashboard");
-        onclose();
+       
+        OnSuccess({
+          icon: "success",
+          message: response?.data?.message || "Add Project Successfully"
+        });
       } catch (error) {
         setloading(false);
         console.log(error?.response.data?.message);
-
-        setApiError(error?.response.data?.message || "Something went wrong");
-
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "bottom-start",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
-        Toast.fire({
+        OnError({
           icon: "warning",
           title: error?.response.data?.message || "Something went wrong",
         });
+
+        // setApiError(error?.response.data?.message || "Something went wrong");
+
+        // const Toast = Swal.mixin({
+        //   toast: true,
+        //   position: "bottom-start",
+        //   showConfirmButton: false,
+        //   timer: 3000,
+        //   timerProgressBar: true,
+        //   didOpen: (toast) => {
+        //     toast.onmouseenter = Swal.stopTimer;
+        //     toast.onmouseleave = Swal.resumeTimer;
+        //   },
+        // });
+        // Toast.fire({
+        //   icon: "warning",
+        //   title: error?.response.data?.message || "Something went wrong",
+        // });
       } finally {
         setloading(false);
       }
     },
   });
-
-  
 
   const handleFile = (file) => {
     if (!file) return;
@@ -176,7 +175,7 @@ const AddProject = ({ onclose = () => {} , projectData}) => {
           className=" px-4   flex flex-col gap-4 items-center overflow-hidden h-full w-full "
         >
           <p className="jetBranis text-xl sm:text-2xl md:text-3xl font-medium sm:font-semibold mt-2   ">
-           {projectData?._id ? "Update" : "Add"} Project
+            {projectData?._id ? "Update" : "Add"} Project
           </p>
 
           <div className="flex flex-col gap-4 w-full overflow-x-hidden overflow-y-auto  h-full custom-scrollbar">
@@ -406,9 +405,9 @@ const AddProject = ({ onclose = () => {} , projectData}) => {
                     <span className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:-0.15s]"></span>
                     <span className="w-2 h-2 bg-white rounded-full animate-bounce"></span>
                   </div>
-                ) : (
-                  "Add Project"
-                )}
+                ) : 
+                 ( projectData?._id ? "Update Project"   : "Add Project")
+                }
               </button>
             </div>
           </div>
