@@ -71,11 +71,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* <div className="col-span-1">
-              <div className="h-80 w-full flex justify-center items-center">
-                <img src="./hero.png" alt="" className="h-full w-[50%]" />
-              </div>
-            </div> */}
+          
             <div className="col-span-1 flex justify-center items-center ">
               <img
                 src="./hero.png"
@@ -125,6 +121,7 @@ const About = () => {
             </div>
           </div>
 
+          {/* Education */}
           <div className="flex justify-between my-5">
             <div className="flex justify-center items-center gap-2">
               <div>
@@ -137,14 +134,14 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
-            <div className="col-span-1">
+            <div className="col-span-1 py-0">
               <div className=" ">
                 <div className="pl-1 sm:pl-6">
                   <span className="text-[18px] sm:text-xl source ">
                     const = Matriculation{" "}
                   </span>
                 </div>
-                <div className="flex flex-col gap-4 py-10 pt-5 text-[18px] pl-2 sm:pl-10 ">
+                <div className="flex flex-col gap-4  py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-10 ">
                   <div className="flex gap-2 text-sm sm:text-xl">
                     <p className="jetBranis text-gray-400">School:</p>
                     <p className="ibm text-gray-500">
@@ -168,7 +165,7 @@ const About = () => {
                     const = Intermediate{" "}
                   </span>
                 </div>
-                <div className="flex flex-col gap-4 py-10 pt-5 text-[18px] pl-2 sm:pl-10 ">
+                <div className="flex flex-col gap-4 py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-10 ">
                   <div className="flex gap-2 text-sm sm:text-xl">
                     <p className="jetBranis text-gray-400">College:</p>
                     <p className="ibm text-gray-500">"Jinnah Govt College",</p>
@@ -190,7 +187,7 @@ const About = () => {
                     const = Mern{" "}
                   </span>
                 </div>
-                <div className="flex flex-col gap-4 py-10 pt-5 text-[18px] pl-2 sm:pl-10 ">
+                <div className="flex flex-col gap-4 py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-10 ">
                   <div className="flex gap-2 text-sm sm:text-xl">
                     <p className="jetBranis text-gray-400">Institute:</p>
                     <p className="ibm text-gray-500">"SMIT",</p>

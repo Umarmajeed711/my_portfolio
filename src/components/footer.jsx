@@ -7,7 +7,7 @@ export const Footer = () => {
    <div className='border-t-2 border-theme-secondary'>
 
     <div className="px-4 md:px-8 lg:px-20  bg-theme-background  w-full ">
-        <div className='pt-10  my-5'>
+        <div className='pt-4 sm:pt-10  sm:my-5'>
 
             <div className='flex flex-col gap-2 sm:flex-row justify-between '>
 
@@ -34,14 +34,14 @@ export const Footer = () => {
 
                  {/* Footer right */}
 
-                <div className='flex flex-col gap-4'>
+                {/* <div className='flex flex-col gap-4'>
                     <div className='text-xl font-medium'>
                         Media
                     </div>
                     <div>
                         Socail Media
                     </div>
-                </div>
+                </div> */}
             </div>
 
             <div className='-mt-5 sm:-mt-15'>

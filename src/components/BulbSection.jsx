@@ -4,6 +4,7 @@ const BulbSection = () => {
   const [bulbOn, setBulbOn] = useState(false);
 
   return (
+    <div className="hidden md:block">
     <div className="my-10 px-4 md:px-8 lg:px-20">
       <div className="flex flex-col md:flex-row items-center justify-center gap-6">
         {/* Bulb Icon */}
@@ -26,7 +27,7 @@ const BulbSection = () => {
           </p>
         </div> */}
 
-        <div className="bg-theme-background pt-6  hidden md:block source">
+        <div className="bg-theme-background pt-6   source">
           <div className="flex justify-center gap-2 items-center pb-5">
             <div
               className={` h-10 w-10 md:h-12 md:w-12 bg-theme-background  transition-all duration-300  md:mr-5 ${
@@ -75,6 +76,7 @@ const BulbSection = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

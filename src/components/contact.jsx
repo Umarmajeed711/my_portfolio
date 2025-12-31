@@ -18,7 +18,7 @@ export const ContactBoat = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 place-items-center">
         <div className="col-span-1 ">
-          <div className="flex flex-col py-2 sm:py-10 pr-10 text-[18px] text-bg-theme-secondary ">
+          <div className="flex flex-col py-2 sm:py-10 pr-10 text-[16px] sm:text-[18px] text-bg-theme-secondary ">
             <div className="border-l-4 !border-[#C778DD] pl-3 roboto text-gray-400">
               I’m interested in freelance opportunities. However, if you have
               other request or question, don’t hesitate to contact me
@@ -67,12 +67,11 @@ export const ContactBoat = () => {
                 target="_blank"
               >
                 <div className="flex items-center gap-4 w-full  ">
-                  {/* <img src="./whatsapp-icon.png" alt="" className="h-5 w-5" /> */}
                   <FaWhatsapp />
                   <p className="text-xl sm:text-xl">Whatsapp</p>
                 </div>
 
-                {/* <FaWhatsapp className="w-10 h-10 icons" /> */}
+             
               </a>
             </div>
             {/* <div className="border px-2 flex gap-4"><p>00</p> <p>Facebook</p></div> */}

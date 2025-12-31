@@ -96,7 +96,7 @@ export const Form = () => {
               </div>
 
               <div
-                className={`col-span-3 md:col-span-2  poppins text-xl  font-light flex justify-center  form-wrapper ${
+                className={`col-span-3 md:col-span-2 pb-2 poppins text-xl  font-light flex justify-center  form-wrapper ${
                   showForm ? "form-show" : ""
                 }`}
               >
