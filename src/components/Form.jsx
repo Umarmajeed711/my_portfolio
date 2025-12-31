@@ -13,7 +13,7 @@ import LampWithForm from "./hanglamp";
 export const Form = () => {
   const [loading, setloading] = useState(false);
   const [showForm, setShowForm] = useState(false);
-    const [pulse, setPulse] = useState(false);
+  const [pulse, setPulse] = useState(false);
   const formRef = React.useRef(null); // reference to native HTML form
 
   const contactValidation = yup.object({
@@ -32,8 +32,8 @@ export const Form = () => {
 
     onSubmit: (values) => {
       console.log(values);
-        setPulse(true);
-  setTimeout(() => setPulse(false), 600);
+      setPulse(true);
+      setTimeout(() => setPulse(false), 600);
 
       setloading(true);
       // Trigger native HTML form submission
@@ -79,135 +79,142 @@ export const Form = () => {
               </p>
             </div>
 
-            <div  className={`grid grid-cols-3 place-items-center h-full transition-colors duration-700 
-           
-  `}>
-              <div className="col-span-1 h-full min-h-[500px] flex justify-center items-center">
+            <div
+              className={`grid grid-cols-3 place-items-center h-full transition-colors duration-700 `}
+            >
+              {!showForm && (
+                <p className="mb-3 col-span-3 text-sm text-theme-secondary animate-pulse">
+                  💡 Click the lamp to contact me
+                </p>
+              )}
+              <div className=" col-span-3 md:col-span-1  md:min-h-[500px] flex  justify-center items-center">
                 <LampWithForm
                   onTurnOn={() => setShowForm(!showForm)}
                   On={showForm}
-                  pulse={pulse} 
+                  pulse={pulse}
                 />
               </div>
 
-              
-                <div  className={`col-span-2 poppins text-xl  font-light flex justify-center  form-wrapper ${showForm ? "form-show" : ""}`}>
-                  {/* Send message form */}
-                  <form
-                    action="https://formsubmit.com/umarmajeed711@gmail.com"
-                    method="POST"
-                    ref={formRef}
-                    onSubmit={contactFormik.handleSubmit}
-                    className=" flex flex-col gap-3 p-5 rounded-2xl  w-80  contactForm"
-                    style={{ boxShadow: "0 0 10px #c778db" }}
+              <div
+                className={`col-span-3 md:col-span-2  poppins text-xl  font-light flex justify-center  form-wrapper ${
+                  showForm ? "form-show" : ""
+                }`}
+              >
+                {/* Send message form */}
+                <form
+                  action="https://formsubmit.com/umarmajeed711@gmail.com"
+                  method="POST"
+                  ref={formRef}
+                  onSubmit={contactFormik.handleSubmit}
+                  className=" flex flex-col gap-3 p-5 rounded-2xl  w-80  contactForm"
+                  style={{ boxShadow: "0 0 10px #c778db" }}
+                >
+                  <div>Send me a Message</div>
+
+                  <div className="flex flex-col gap-1 text-sm">
+                    <label htmlFor="name">Name</label>
+                    <div>
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Enter your name"
+                        value={contactFormik.values.name}
+                        onChange={contactFormik.handleChange}
+                        className="inputField"
+                      />
+
+                      <div className="error-wrapper">
+                        {contactFormik.touched.name &&
+                          contactFormik.errors.name && (
+                            <p className="requiredError">
+                              {contactFormik.errors.name}
+                            </p>
+                          )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1 text-sm">
+                    <label htmlFor="email">Email</label>
+                    <div>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        value={contactFormik.values.email}
+                        onChange={contactFormik.handleChange}
+                        className="inputField"
+                      />
+
+                      <div className="error-wrapper">
+                        {contactFormik.touched.email &&
+                          contactFormik.errors.email && (
+                            <p className="requiredError">
+                              {contactFormik.errors.email}
+                            </p>
+                          )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-1 text-sm">
+                    <label htmlFor="message">Message</label>
+                    <div>
+                      <input
+                        type="text"
+                        name="message"
+                        id="message"
+                        placeholder="Your message"
+                        value={contactFormik.values.message}
+                        onChange={contactFormik.handleChange}
+                        className="inputField "
+                      />
+
+                      <div className="error-wrapper">
+                        {contactFormik.touched.message &&
+                          contactFormik.errors.message && (
+                            <p className="requiredError">
+                              {contactFormik.errors.message}
+                            </p>
+                          )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Optional hidden fields */}
+                  <input
+                    type="hidden"
+                    name="_subject"
+                    value="New Message from Portfolio!"
+                  />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input
+                    type="hidden"
+                    name="_next"
+                    value="https://ss1-portfolio.netlify.app/"
+                  />
+
+                  <div
+                    className="bg-theme-primary text-theme-background hover:bg-theme-background hover:text-theme-primary transition-all duration-300 p-2 rounded text-center   text-sm font-medium   cursor-pointer"
+                    style={{ boxShadow: "0 0 10px #c979df" }}
                   >
-                    <div>Send me a Message</div>
-
-                    <div className="flex flex-col gap-1 text-sm">
-                      <label htmlFor="name">Name</label>
-                      <div>
-                        <input
-                          type="text"
-                          name="name"
-                          id="name"
-                          placeholder="Enter your name"
-                          value={contactFormik.values.name}
-                          onChange={contactFormik.handleChange}
-                          className="inputField"
-                        />
-
-                        <div className="error-wrapper">
-                          {contactFormik.touched.name &&
-                            contactFormik.errors.name && (
-                              <p className="requiredError">
-                                {contactFormik.errors.name}
-                              </p>
-                            )}
+                    <button type="submit" disabled={loading}>
+                      {loading ? (
+                        <div className="flex items-center gap-1 bg-transparent">
+                          <span className="w-2 h-2 bg-black rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                          <span className="w-2 h-2 bg-black rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                          <span className="w-2 h-2 bg-black rounded-full animate-bounce"></span>
                         </div>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col gap-1 text-sm">
-                      <label htmlFor="email">Email</label>
-                      <div>
-                        <input
-                          type="email"
-                          name="email"
-                          id="email"
-                          placeholder="Enter your email"
-                          value={contactFormik.values.email}
-                          onChange={contactFormik.handleChange}
-                          className="inputField"
-                        />
-
-                        <div className="error-wrapper">
-                          {contactFormik.touched.email &&
-                            contactFormik.errors.email && (
-                              <p className="requiredError">
-                                {contactFormik.errors.email}
-                              </p>
-                            )}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col gap-1 text-sm">
-                      <label htmlFor="message">Message</label>
-                      <div>
-                        <input
-                          type="text"
-                          name="message"
-                          id="message"
-                          placeholder="Your message"
-                          value={contactFormik.values.message}
-                          onChange={contactFormik.handleChange}
-                          className="inputField "
-                        />
-
-                        <div className="error-wrapper">
-                          {contactFormik.touched.message &&
-                            contactFormik.errors.message && (
-                              <p className="requiredError">
-                                {contactFormik.errors.message}
-                              </p>
-                            )}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Optional hidden fields */}
-                    <input
-                      type="hidden"
-                      name="_subject"
-                      value="New Message from Portfolio!"
-                    />
-                    <input type="hidden" name="_captcha" value="false" />
-                    <input type="hidden" name="_template" value="table" />
-                    <input
-                      type="hidden"
-                      name="_next"
-                      value="https://ss1-portfolio.netlify.app/"
-                    />
-
-                    <div
-                      className="bg-theme-primary text-theme-background hover:bg-theme-background hover:text-theme-primary transition-all duration-300 p-2 rounded text-center   text-sm font-medium   cursor-pointer"
-                      style={{ boxShadow: "0 0 10px #c979df" }}
-                    >
-                      <button type="submit" disabled={loading}>
-                        {loading ? (
-                          <div className="flex items-center gap-1 bg-transparent">
-                            <span className="w-2 h-2 bg-black rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-                            <span className="w-2 h-2 bg-black rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-                            <span className="w-2 h-2 bg-black rounded-full animate-bounce"></span>
-                          </div>
-                        ) : (
-                          "Send message"
-                        )}
-                      </button>
-                    </div>
-                  </form>
-                </div>
-             
+                      ) : (
+                        "Send message"
+                      )}
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

@@ -40,7 +40,7 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
             <div className="col-span-1 ">
-              <div className="flex flex-col gap-4 py-0 sm:py-10 text-[18px] roboto">
+              <div className="flex flex-col gap-4 py-0 sm:py-10 text-[16px] sm:text-[18px] roboto">
                 <div className="text-theme-secondary">
                   Hello, i’m Muhammad Umar!
                 </div>
@@ -108,7 +108,7 @@ const About = () => {
             </div>
 
             <div className="col-span-1 ">
-              <div className="flex flex-col gap-4 py-0 sm:py-10 text-[18px] roboto">
+              <div className="flex flex-col gap-4 py-0 px-4 sm:py-10 text-[16px] sm:text-[18px] roboto">
                 <ul
                   className="flex flex-col gap-2"
                   style={{ listStyle: "circle" }}
@@ -210,7 +210,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="flex justify-between my-5">
+          <div className="hidden md:flex  justify-between md:my-5 ">
             <div className="flex justify-center items-center gap-2">
               <div>
                 <span className="text-theme-primary text-2xl">#</span>

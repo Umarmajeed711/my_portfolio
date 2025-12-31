@@ -209,11 +209,11 @@ const Home = () => {
               Hello World /&gt;
             </p>
 
-            <p className="text-4xl md:text-5xl lg:text-[56px] font-bold text-theme-primary">
+            <p className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-theme-primary">
               Muhammad Umar
             </p>
 
-            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-theme-white flex items-center gap-2">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-theme-white flex items-center gap-2">
               MERN Stack Developer
               <span className="hover:scale-110 transition">
                 {mernIcons[index].icon}
@@ -252,7 +252,7 @@ const Home = () => {
               <img
                 src="./hero.png"
                 alt=""
-                className="h-56 md:h-80 w-56 md:w-80"
+                className="h-56 md:h-80 w-64 md:w-80"
               />
             </div>
             <div>
@@ -265,14 +265,14 @@ const Home = () => {
                 }}
               >
                 <span className="h-4 w-4 bg-theme-primary"></span>
-                <span className="text-[11px] md:text-[11px] lg:text-[14px] text-theme-secondary ">
+                <span className="text-[10px] sm:text-[11px] md:text-[11px] lg:text-[14px] text-theme-secondary ">
                   Currently working on
                 </span>
-                <span className="text-[14px] md:text-[12px] lg:text-[15px] jetBranis">
+                <span className="text-[12px] sm:text-[14px] md:text-[12px] lg:text-[15px] jetBranis">
                   {!titleLoading ? (
                     title?.title
                   ) : (
-                    <div className="w-12 h-2 bg-slate-200 animate-pulse"></div>
+                    <div className="w-[70px] h-3 bg-slate-200 animate-pulse"></div>
                   )}
                 </span>
                 {isAdmin ? (

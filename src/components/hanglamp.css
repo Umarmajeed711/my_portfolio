@@ -71,23 +71,35 @@
   color: #aaa;
 }
 
-/* FORM */
-/* .form-wrapper {
-  opacity: 0;
-  transform: translateY(40px);
-  pointer-events: none;
 
-  transition: all 0.7s ease;
+/* Tablets & below */
+@media (max-width: 1100px) {
+ .lamp {
+  width: 250px;
+  height: 300px;
 }
 
-.form-show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-
-  box-shadow:
-    0 0 50px rgba(199,120,221,0.25),
-    inset 0 0 80px rgba(199,120,221,0.15);
-} */
+  .lamp-aim {
+    transform: rotate(-50deg);
+  }
+}
 
 
+@media (max-width: 768px) {
+
+  .lamp-layout {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  min-height:100%;
+}
+
+  .lamp {
+  width: 200px;
+  height: 250px;
+}
+
+  .lamp-aim {
+    transform: rotate(0deg);
+  }
+}

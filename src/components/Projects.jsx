@@ -57,12 +57,12 @@ const Projects = ({
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="w-full h-80 animate-pulse shadow-md rounded-lg bg-slate-50 col-span-1 py-2 md:py-3"
+                className="w-full h-80 animate-pulse shadow-md rounded-lg bg-slate-200 col-span-1 py-2 md:py-3"
               ></div>
             ))}
           </div>
         ) : projects?.length < 1 ? (
-          <div className="w-full col-span-4  h-40 flex justify-center items-center ">
+          <div className="w-full col-span-4  h-40 flex justify-center items-center  text-theme-primary">
             Projects Not Found
           </div>
         ) : (

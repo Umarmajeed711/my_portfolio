@@ -3,7 +3,7 @@ import { SiExpress, SiNextdotjs } from "react-icons/si";
 
 const SkillBar = ({ name, icon, level, percent }) => {
   return (
-    <div className="flex items-end gap-8 w-full">
+    <div className="flex flex-col sm:flex-row items-start sm:items-end gap-8 w-full">
       {/* Icon */}
       <div>
         <div
@@ -135,13 +135,13 @@ const Skills = () => {
       name: "MUI",
       icon: "./mui.png",
     },
-    // {
-    //   name: "GSAP",
-    //   icon: gsap,
-    // },
+    {
+      name: "GSAP",
+      icon: "./gsap.jpeg",
+    },
     {
       name: "Tanstack Query",
-      icon: "./bootstrap.png",
+      icon: "./tanstack.png",
     },
   ];
 
@@ -154,26 +154,22 @@ const Skills = () => {
       name: "Github",
       icon: "./github.png",
     },
-    // {
-    //   name: "Vercel",
-    //   icon: vercel,
-    // },
+    {
+      name: "Vercel",
+      icon: "./vercel.png",
+    },
     {
       name: "Netlify",
       icon: "./netlify.png",
     },
     {
       name: "Postman",
-      icon: "./bootstrap.png",
+      icon: "./Postman.png",
     },
     {
       name: "Thunder Client",
-      icon: "./mui.png",
+      icon: "./thunderclient.png",
     },
-    // {
-    //   name: "VS Code",
-    //   icon: vsCode,
-    // },
     {
       name: "Cursor",
       icon: "./cursor-ai.png",
