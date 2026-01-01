@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SiExpress, SiNextdotjs } from "react-icons/si";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
-const SkillBar = ({ name, icon, level, percent }) => {
+const SkillBar = ({ name, icon, level, percent, className }) => {
   return (
-    <div className="flex flex-col sm:flex-row items-start sm:items-end gap-8 w-full">
+    <div
+      className={`flex flex-col sm:flex-row items-start sm:items-end gap-8 w-full ${
+        className || ""
+      }`}
+    >
       {/* Icon */}
       <div>
         <div
@@ -65,17 +72,17 @@ const SkillBar = ({ name, icon, level, percent }) => {
   );
 };
 
-const SkillCard = ({ icon, name }) => (
+const SkillCard = ({ icon, name, className }) => (
   <div
-    className="
-
-       flex flex-col items-center gap-2
-    p-4 rounded-xl
-    border border-theme-secondary/20
-    hover:border-theme-primary
-    hover:-translate-y-1 hover:scale-105
-    transition-all duration-300
-    "
+    className={`
+      flex flex-col items-center gap-2
+      p-4 rounded-xl
+      border border-theme-secondary/20
+      hover:border-theme-primary
+      hover:-translate-y-1 hover:scale-105
+      transition-all duration-300
+      ${className || ""}
+      `}
   >
     <img src={icon} alt={name} className="h-12 w-12 sm:h-16 sm:w-16" />
     <p className="text-sm">{name}</p>
@@ -198,6 +205,133 @@ const Skills = () => {
       icon: "./database.png",
     },
   ];
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from("#Skills .skill0", {
+      xPercent: 20,
+      duration: 1,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: "#Skills .skill0",
+        // markers: true,
+        scrub: 2,
+        start: "top 80%",
+        end: "top 80%",
+        scroll: -1,
+      },
+    });
+    gsap.from("#Skills .skill1", {
+      xPercent: 20,
+      duration: 1,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: "#Skills .skill1",
+        // markers: true,
+        scrub: 2,
+        start: "top 75%",
+        end: "top 75%",
+        scroll: -1,
+      },
+    });
+    gsap.from("#Skills .skill2", {
+      xPercent: 20,
+      duration: 1,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: "#Skills .skill2",
+        // markers: true,
+        scrub: 2,
+        start: "top 70%",
+        end: "top 70%",
+        scroll: -1,
+      },
+    });
+    gsap.from("#Skills .skill3", {
+      xPercent: 20,
+      duration: 1,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: "#Skills .skill3",
+        //  markers: true,
+        scrub: 2,
+        start: "top 75%",
+        end: "top 90%",
+        scroll: -1,
+      },
+    });
+    gsap.from("#Stagger1 .staggerBox1", {
+      yPercent: 30,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: "#Stagger1 .staggerBox1",
+        markers: true,
+        scrub: 2,
+        start: "top 80%",
+        end: "top 70%",
+        // scroll: -1,
+      },
+    });
+    gsap.from("#Stagger2 .staggerBox2", {
+      yPercent: 30,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: "#Stagger2 .staggerBox2",
+        markers: true,
+        scrub: 2,
+        start: "top 80%",
+        end: "top 70%",
+        // scroll: -1,
+      },
+    });
+    gsap.from("#Stagger3 .staggerBox3", {
+      yPercent: 30,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.3,
+      scrollTrigger: {
+        trigger: "#Stagger3 .staggerBox3",
+        markers: true,
+        scrub: 2,
+        start: "top 80%",
+        end: "top 70%",
+        // scroll: -1,
+      },
+    });
+  });
+
+
+//   useEffect(() => {
+//   const ctx = gsap.context(() => {
+//     [
+//       { section: "#Stagger1", box: ".staggerBox1" },
+//       { section: "#Stagger2", box: ".staggerBox2" },
+//       { section: "#Stagger3", box: ".staggerBox3" },
+//     ].forEach(({ section, box }) => {
+//       gsap.from(`${section} ${box}`, {
+//         yPercent: 30,
+//         opacity: 0,
+//         duration: 1,
+//         stagger: 0.3,
+//         scrollTrigger: {
+//           trigger: section,
+//           start: "top 80%",
+//           end: "top 60%",
+//           scrub: 2,
+//           markers: true,
+//         },
+//       });
+//     });
+//   });
+
+//   return () => ctx.revert();
+// }, []);
+
   return (
     <div className="px-4 md:px-8 lg:px-20  bg-theme-background text-theme-white w-full py-5 ">
       <div className="flex justify-between my-2 sm:my-5">
@@ -251,23 +385,31 @@ const Skills = () => {
             <div className="text-theme-secondary text-xl source">
               &lt;Languages/&gt;
             </div>
-
-            {languages?.map((lang, i) => (
-              <SkillBar
-                key={i}
-                name={lang.name}
-                icon={lang.icon}
-                level={lang.level}
-                percent={lang.percent}
-              />
-            ))}
+            <div id="Skills" className="flex flex-col gap-6 h-full">
+              {languages?.map((lang, i) => (
+                <SkillBar
+                  key={i}
+                  name={lang.name}
+                  icon={lang.icon}
+                  level={lang.level}
+                  percent={lang.percent}
+                  className={`skill${i}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
+
+      
+
       {/* libraries and Frameworks */}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-2 sm:my-5  ">
+      <div
+        className="grid grid-cols-1 md:grid-cols-3 gap-10 my-2 sm:my-5  "
+        id="Stagger1"
+      >
         <div className="col-span-3">
           <div className="flex flex-col justify-center  items-center">
             <div className="text-2xl font-bold mt-5 capitalize jetBranis">
@@ -278,21 +420,12 @@ const Skills = () => {
               <div className="flex gap-8 flex-wrap justify-center">
                 {frameworks?.map((each, i) => {
                   return (
-                    // <div key={i} className="flex flex-col gap-1 items-center">
-                    //   <div>
-                    //     <img
-                    //       src={each?.icon}
-                    //       alt={each?.icon}
-                    //       className="h-12 w-12 sm:h-16 sm:w-16 "
-                    //     />
-                    //     {/* <SiExpress size={45} />  */}
-                    //   </div>
-                    //   <p>{each?.name}</p>
-                    // </div>
-
-                    <SkillCard key={i} icon={each.icon} name={each.name} />
- 
- 
+                    <SkillCard
+                      key={i}
+                      icon={each.icon}
+                      name={each.name}
+                      className="staggerBox1"
+                    />
                   );
                 })}
               </div>
@@ -302,7 +435,10 @@ const Skills = () => {
       </div>
 
       {/* Tools & Hosting */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-5  ">
+      <div
+        className="grid grid-cols-1 md:grid-cols-3 gap-10 my-5  "
+        id="Stagger2"
+      >
         <div className="col-span-3">
           <div className="flex flex-col justify-center  items-center">
             <div className="text-2xl font-bold mt-5 capitalize jetBranis">
@@ -313,7 +449,12 @@ const Skills = () => {
               <div className="flex gap-4 flex-wrap justify-center">
                 {tools?.map((each, i) => {
                   return (
-                    <SkillCard key={i} icon={each.icon} name={each.name} />
+                    <SkillCard
+                      key={i}
+                      icon={each.icon}
+                      name={each.name}
+                      className="staggerBox2"
+                    />
                   );
                 })}
               </div>
@@ -323,7 +464,10 @@ const Skills = () => {
       </div>
 
       {/* Backend & DataBases */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 my-5  ">
+      <div
+        className="grid grid-cols-1 md:grid-cols-3 gap-10 my-5"
+        id="Stagger3"
+      >
         <div className="col-span-3">
           <div className="flex flex-col justify-center  items-center">
             <div className="text-2xl font-bold mt-5 capitalize jetBranis">
@@ -334,7 +478,12 @@ const Skills = () => {
               <div className="flex gap-4 flex-wrap justify-center">
                 {backend?.map((each, i) => {
                   return (
-                   <SkillCard key={i} icon={each.icon} name={each.name} />
+                    <SkillCard
+                      key={i}
+                      icon={each.icon}
+                      name={each.name}
+                      className="staggerBox3"
+                    />
                   );
                 })}
               </div>

@@ -1,7 +1,40 @@
 import { ArrowUpRight } from "lucide-react";
 import React from "react";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export const About = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from("#About .aboutMe", {
+      xPercent: -20,
+      duration: 1,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: "#About .aboutMe",
+        // markers: true,
+        scrub: 2,
+        start: "top 75%",
+        end: "top 75%",
+        scroll: -1,
+      },
+    });
+    gsap.from("#About .aboutImage", {
+      yPercent: 20,
+      duration: 1,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: "#About .aboutImage",
+        // markers: true,
+        scrub: 2,
+        start: "top 80%",
+        end: "top 80%",
+        scroll: -1,
+      },
+    });
+  });
   return (
     <div className="px-4 md:px-8 lg:px-20  bg-theme-background text-theme-white w-full py-2 sm:py-5 ">
       <div className="flex justify-between my-0 sm:my-5">
@@ -15,8 +48,8 @@ export const About = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
-        <div className="col-span-1 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5  " id="About">
+        <div className="col-span-1 aboutMe ">
           <div className="flex flex-col gap-2 sm:gap-4 py-5 sm:py-10 text-[18px] roboto">
             <div className="text-theme-secondary">
               Hello, i’m Muhammad Umar!
@@ -38,7 +71,7 @@ export const About = () => {
               {/* <a className="px-2 py-1  button ibm " href="/about-me">
                 Read More /&gt;
               </a> */}
-               <a
+              <a
                 href="/about-me"
                 className="
     group inline-flex items-center gap-1.5
@@ -47,7 +80,7 @@ export const About = () => {
     relative
   "
               >
-                Read More 
+                Read More
                 <ArrowUpRight
                   size={18}
                   className="
@@ -69,13 +102,9 @@ export const About = () => {
           </div>
         </div>
 
-        {/* <div className="col-span-1">
-          <div className="h-80 w-full flex justify-center items-center">
-            <img src="./hero.png" alt="" className="h-full w-[50%]" />
-          </div>
-        </div> */}
+     
 
-        <div className="col-span-1 flex justify-center items-center ">
+        <div className="col-span-1 flex justify-center items-center aboutImage">
           <img
             src="./hero.png"
             alt=""

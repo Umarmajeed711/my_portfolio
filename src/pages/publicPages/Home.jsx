@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./home.css";
 import Projects from "../../components/Projects";
 import Skills from "../../components/skills";
@@ -25,6 +25,8 @@ import { ArrowUpRight, Pencil } from "lucide-react";
 import { ContactBoat } from "../../components/contact";
 import CurrentlyWorkingOn from "../../components/currentlyWorking";
 import Skeleton from "@mui/material/Skeleton";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Home = () => {
   const [bulbOn, setBulbOn] = useState(false);
@@ -47,7 +49,6 @@ const Home = () => {
   const [visibleIndex, setVisibleIndex] = useState(0);
 
   useEffect(() => {
-    
     const interval = setInterval(() => {
       setVisibleIndex((prev) =>
         prev < mernIcons.length - 1 ? prev + 1 : prev
@@ -167,7 +168,7 @@ const Home = () => {
     setProjectData({});
     setShowModal(false);
     dynamicToast({ position, icon, message });
-    getProjects()
+    getProjects();
   };
 
   const OnError = ({ position, icon, message }) => {
@@ -197,14 +198,29 @@ const Home = () => {
     });
   };
 
+  const container = useRef();
+
+  useGSAP(
+    () => {
+      gsap.from(".nameSection", {
+        x: -50,
+        duration: 1,
+        opacity: 0,
+        delay: 0,
+      }); 
+
+      gsap.from(".picSection", { y: 50, opacity: 0, duration: 1, delay: 0 });
+    },
+    { scope: container }
+  ); 
   return (
     <>
-      <div className="w-full">
+      <div className="w-full" ref={container}>
         <Navbar />
         {/* hero section */}
         <div className="home my-10 md:my-0 gap-3 px-4 md:px-8 lg:px-20  w-full  grid grid-cols-1 md:grid-cols-3 ">
           {/* hero div */}
-          <div className="flex flex-col justify-center gap-1 sm:gap-4 col-span-1 md:col-span-2 h-full source">
+          <div className="flex flex-col justify-center gap-1 sm:gap-4 col-span-1 md:col-span-2 h-full source nameSection">
             <p className="text-xl md:text-2xl text-theme-secondary">
               Hello World /&gt;
             </p>
@@ -247,7 +263,7 @@ const Home = () => {
           </div>
 
           {/* hero image */}
-          <div className="heroImg col-span-1 flex justify-center items-center flex-col h-full ">
+          <div className="heroImg col-span-1 flex justify-center items-center flex-col h-full picSection">
             <div className="">
               <img
                 src="./hero.png"

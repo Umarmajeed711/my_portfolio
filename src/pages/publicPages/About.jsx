@@ -3,6 +3,9 @@ import Projects from "../../components/Projects";
 import Navbar from "../../components/navbar";
 import { Footer } from "../../components/footer";
 import BulbSection from "../../components/BulbSection";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const About = () => {
   const work = [
@@ -18,6 +21,51 @@ const About = () => {
 
     "Ensure clean code and performance optimization",
   ];
+
+    gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    
+    gsap.from("#About .nameSection", {
+        x: -50,
+        duration: 1,
+        opacity: 0,
+        delay: 0,
+      }); 
+
+      gsap.from("#About .picSection", { y: 50, opacity: 0, duration: 1, delay: 0 });
+
+      gsap.from("#WhatIDO .whatImage", {
+      xPercent: -20,
+      duration: 1,
+      opacity: 0,
+      stagger: "0.4",
+      scrollTrigger: {
+        trigger: "#WhatIDO .whatImage",
+        // markers: true,
+        scrub: 2,
+        start: "top 75%",
+        end: "top 75%",
+        scroll: -1,
+      },
+    });
+
+     gsap.from("#WhatIDO .whatText", {
+      xPercent: 10,
+      duration: 1,
+      opacity: 0,
+      stagger: "0.4",
+      scrollTrigger: {
+        trigger: "#WhatIDO .whatText",
+        // markers: true,
+        scrub: 2,
+        start: "top 75%",
+        end: "top 75%",
+        scroll: -1,
+      },
+    });
+
+  });
   return (
     <>
       <div className="w-full">
@@ -38,8 +86,10 @@ const About = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
-            <div className="col-span-1 ">
+          {/* About TOp section */}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 " id="About">
+            <div className="col-span-1 nameSection ">
               <div className="flex flex-col gap-4 py-0 sm:py-10 text-[16px] sm:text-[18px] roboto">
                 <div className="text-theme-secondary">
                   Hello, i’m Muhammad Umar!
@@ -72,7 +122,7 @@ const About = () => {
             </div>
 
           
-            <div className="col-span-1 flex justify-center items-center ">
+            <div className="col-span-1 flex justify-center items-center picSection">
               <img
                 src="./hero.png"
                 alt=""
@@ -94,8 +144,8 @@ const About = () => {
 
           {/* What can i do */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
-            <div className="col-span-1 flex justify-center items-center ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 " id="WhatIDO">
+            <div className="col-span-1 flex justify-center items-center whatImage ">
               <img
                 src="./hero.png"
                 alt=""
@@ -103,7 +153,7 @@ const About = () => {
               />
             </div>
 
-            <div className="col-span-1 ">
+            <div className="col-span-1 whatText">
               <div className="flex flex-col gap-4 py-0 px-4 sm:py-10 text-[16px] sm:text-[18px] roboto">
                 <ul
                   className="flex flex-col gap-2"
