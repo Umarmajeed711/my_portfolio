@@ -104,11 +104,16 @@ export const About = () => {
 
      
 
-        <div className="col-span-1 flex justify-center items-center aboutImage">
-          <img
-            src="./hero.png"
+        <div className="col-span-1 flex justify-center items-center aboutImage h-full">
+          {/* <img
+            src="./heroImage2.png"
             alt=""
             className="h-56 w-56 rounded-full myshadow "
+          /> */}
+          <img
+            src="./about.png"
+            alt=""
+            className="animate-pulse transition-all duration-100"
           />
         </div>
       </div>

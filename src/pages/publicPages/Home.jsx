@@ -286,7 +286,7 @@ const Home = () => {
                 </span>
                 <span className="text-[12px] sm:text-[14px] md:text-[12px] lg:text-[15px] jetBranis">
                   {!titleLoading ? (
-                    title?.title
+                    title?.title ? title?.title : "Portfolio"
                   ) : (
                     <div className="w-[70px] h-3 bg-slate-200 animate-pulse"></div>
                   )}

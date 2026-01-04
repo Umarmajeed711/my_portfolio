@@ -51,7 +51,7 @@ export const ContactBoat = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 place-items-center " id="Contact">
         <div className="col-span-1 contactMe">
-          <div className="flex flex-col py-2 sm:py-10 pr-10 text-[16px] sm:text-[18px] text-bg-theme-secondary ">
+          <div className="flex flex-col py-2 sm:py-10 sm:pr-10 text-[16px] sm:text-[18px] text-bg-theme-secondary ">
             <div className="border-l-4 !border-[#C778DD] pl-3 roboto text-gray-400">
               I’m interested in freelance opportunities. However, if you have
               other request or question, don’t hesitate to contact me

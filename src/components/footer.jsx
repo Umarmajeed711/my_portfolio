@@ -52,7 +52,7 @@ export const Footer = () => {
 
             <div className='flex justify-center items-center mt-10 '>
                 <div className='text-theme-secondary'>
-                    &copy; Copyright 2025 . Made By "M.Umar" 
+                    &copy; Copyright 2026 . Made By "M.Umar" 
                 </div>
             </div>
 

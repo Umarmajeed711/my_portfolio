@@ -74,7 +74,7 @@ const About = () => {
       yPercent: 20,
       duration: 1,
       opacity: 0,
-      stagger:0.4,
+      stagger: 0.4,
       scrollTrigger: {
         trigger: "#education .edu",
         // markers: true,
@@ -142,9 +142,9 @@ const About = () => {
 
             <div className="col-span-1 flex justify-center items-center picSection">
               <img
-                src="./hero.png"
+                src="./heroImage.png"
                 alt=""
-                className="h-56 w-56 rounded-full myshadow "
+                className="h-56 md:h-96 w-56 md:w-96  myshadow "
               />
             </div>
           </div>
@@ -165,9 +165,9 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 " id="WhatIDO">
             <div className="col-span-1 flex justify-center items-center whatImage ">
               <img
-                src="./hero.png"
+                src="./about.png"
                 alt=""
-                className="h-56 w-56 rounded-full myshadow "
+                className="h-56 md:h-72  animate-pulse transition-all duration-100"
               />
             </div>
 
@@ -201,7 +201,10 @@ const About = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 py-2 sm:py-4 " id="education">
+          <div
+            className="grid grid-cols-1 md:grid-cols-3 gap-5 py-2 sm:py-4 "
+            id="education"
+          >
             <div className="col-span-1 py-0 edu">
               <div className="pl-1 sm:pl-2">
                 <span className="text-[18px] sm:text-xl source ">
@@ -268,6 +271,7 @@ const About = () => {
               </div>
             </div>
           </div>
+          <CertificateSection />
 
           <div className="hidden md:flex  justify-between md:my-5 ">
             <div className="flex justify-center items-center gap-2">
@@ -279,7 +283,6 @@ const About = () => {
               <div className="h-[1px] sm:w-96 md:w-[500px] lg:w-[700px]  bg-theme-primary"></div>
             </div>
           </div>
-          <CertificateSection/>
 
           <BulbSection />
         </div>

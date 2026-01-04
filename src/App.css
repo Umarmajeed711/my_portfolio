@@ -309,7 +309,9 @@
 
 
 .inputBox input:valid,
-.inputBox input:focus {
+.inputBox input:focus,
+.inputBox textarea:focus,
+.inputBox textarea:valid {
   border: 1px solid #c778dd;
   box-shadow: 0 0 10px #979696cc;
 }

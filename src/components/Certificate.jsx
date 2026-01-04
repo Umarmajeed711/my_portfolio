@@ -7,13 +7,13 @@ export default function CertificateSection() {
   const certificate = {
     title: "MERN Stack Developer",
     image: "/hero.png", // replace with your certificate path
-    institute: "XYZ Institute",
-    completed: "Jan 2026",
+    institute: "SMIT",
+    completed: "Aug 2025",
     skills: ["MongoDB", "Express.js", "React.js", "Node.js"],
   };
 
   return (
-    <section className="bg-[#282C33] py-20 px-6 flex flex-col items-center">
+    <section className="bg-[#282C33] py-4 md:py-20 px-2 md:px-6 flex flex-col items-center">
       <h2 className="text-3xl font-bold text-[#C778DD] mb-12 text-center">
         My Certification
       </h2>
@@ -42,7 +42,7 @@ export default function CertificateSection() {
           className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 "
           onClick={() => setModalOpen(false)}
         >
-          <div className="bg-[#2A2F38] p-6 rounded-lg max-w-3xl w-full relative">
+          <div className="bg-[#2A2F38] p-6 rounded-lg max-w-3xl w-full h-[500px] relative">
             {/* Close button */}
             <button
               onClick={() => setModalOpen(false)}
@@ -55,7 +55,7 @@ export default function CertificateSection() {
             <img
               src={certificate.image}
               alt={certificate.title}
-              className="w-full h-auto rounded-md mb-4 object-contain"
+              className="w-full h-[60%] md:h-[70%]  rounded-md mb-4 object-contain"
             />
 
             {/* Certificate Details */}
@@ -63,7 +63,7 @@ export default function CertificateSection() {
               <h3 className="text-[#C778DD] font-bold text-2xl mb-2">
                 {certificate.title}
               </h3>
-              <p className="text-[#BFC7D5] mb-1">{certificate.institute}</p>
+              <p className="text-[#BFC7D5] mb-1">Institute: {certificate.institute}</p>
               <p className="text-[#BFC7D5] mb-2">Completed: {certificate.completed}</p>
               <div className="flex justify-center flex-wrap gap-2">
                 {certificate.skills.map((skill, idx) => (

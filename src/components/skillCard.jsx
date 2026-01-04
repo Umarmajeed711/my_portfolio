@@ -105,13 +105,14 @@ const SkillCardSection = () => {
       name: "Postman",
       icon: "./Postman.png",
     },
-    {
-      name: "Thunder Client",
-      icon: "./thunderclient.png",
-    },
+    
     {
       name: "Cursor",
       icon: "./cursor-ai.png",
+    },
+    {
+      name: "Thunder Client",
+      icon: "./thunderclient.png",
     },
   ];
 
@@ -141,13 +142,13 @@ const SkillCardSection = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    gsap.from("#Stagger1 .staggerBox1", {
-      yPercent: 30,
+    gsap.from("#stag .stagBox", {
+      rotate: 45,
       opacity: 0,
       duration: 1,
-    //   stagger: 0.3,
+      // stagger: 0.8,
       scrollTrigger: {
-        trigger: "#Stagger1 .staggerBox1",
+        trigger: "#stag .stagBox",
         // markers: true,
         scrub: 2,
         start: "top 80%",
@@ -155,34 +156,34 @@ const SkillCardSection = () => {
         scroll: -1,
       },
     });
-    gsap.from("#Stagger2 .staggerBox2", {
-      xPercent: 30,
-      opacity: 0,
-      duration: 1,
+    // gsap.from("#Stagger2 .staggerBox2", {
+    //   xPercent: 30,
+    //   opacity: 0,
+    //   duration: 1,
+    // //   stagger: 0.3,
+    //   scrollTrigger: {
+    //     trigger: "#Stagger2 .staggerBox2",
+    //     // markers: true,
+    //     scrub: 2,
+    //     start: "top 80%",
+    //     end: "top 70%",
+    //     scroll: -1,
+    //   },
+    // });
+    // gsap.from("#Stagger3 .staggerBox3", {
+    //   rotate: 30,
+    //   opacity: 0,
+    //   duration: 1,
     //   stagger: 0.3,
-      scrollTrigger: {
-        trigger: "#Stagger2 .staggerBox2",
-        // markers: true,
-        scrub: 2,
-        start: "top 80%",
-        end: "top 70%",
-        scroll: -1,
-      },
-    });
-    gsap.from("#Stagger3 .staggerBox3", {
-      rotate: 30,
-      opacity: 0,
-      duration: 1,
-    //   stagger: 0.3,
-      scrollTrigger: {
-        trigger: "#Stagger3 .staggerBox3",
-        // markers: true,
-        scrub: 2,
-        start: "top 80%",
-        end: "top 70%",
-        scroll: -1,
-      },
-    });
+    //   scrollTrigger: {
+    //     trigger: "#Stagger3 .staggerBox3",
+    //     // markers: true,
+    //     scrub: 2,
+    //     start: "top 80%",
+    //     end: "top 70%",
+    //     scroll: -1,
+    //   },
+    // });
   });
   return (
    
@@ -202,14 +203,14 @@ const SkillCardSection = () => {
             </div>
 
             <div className="flex gap-5 m-5 justify-center items-center">
-              <div className="flex gap-8 flex-wrap justify-center" id="Stagger1">
+              <div className="flex gap-8 flex-wrap justify-center" id="stag">
                 {frameworks?.map((each, i) => {
                   return (
                     <SkillCard
                       key={i}
                       icon={each.icon}
                       name={each.name}
-                      className="staggerBox1"
+                      className="stagBox"
                     />
                   );
                 })}
@@ -222,7 +223,7 @@ const SkillCardSection = () => {
       {/* Tools & Hosting */}
       <div
         className="grid grid-cols-1 md:grid-cols-3 gap-10 my-5  "
-        id="Stagger2"
+        // id="Stagger2"
       >
         <div className="col-span-3">
           <div className="flex flex-col justify-center  items-center">
@@ -231,14 +232,14 @@ const SkillCardSection = () => {
             </div>
 
             <div className="flex gap-5 m-5 justify-center items-center">
-              <div className="flex gap-4 flex-wrap justify-center">
+              <div className="flex gap-4 flex-wrap justify-center" id="stag">
                 {tools?.map((each, i) => {
                   return (
                     <SkillCard
                       key={i}
                       icon={each.icon}
                       name={each.name}
-                      className="staggerBox2"
+                      className="stagBox"
                     />
                   );
                 })}
@@ -251,7 +252,7 @@ const SkillCardSection = () => {
       {/* Backend & DataBases */}
       <div
         className="grid grid-cols-1 md:grid-cols-3 gap-10 my-5"
-        id="Stagger3"
+        // id="Stagger3"
       >
         <div className="col-span-3">
           <div className="flex flex-col justify-center  items-center">
@@ -260,14 +261,14 @@ const SkillCardSection = () => {
             </div>
 
             <div className="flex gap-5 m-5 justify-center items-center">
-              <div className="flex gap-4 flex-wrap justify-center">
+              <div className="flex gap-4 flex-wrap justify-center" id="stag">
                 {backend?.map((each, i) => {
                   return (
                     <SkillCard
                       key={i}
                       icon={each.icon}
                       name={each.name}
-                      className="staggerBox3"
+                      className="stagBox"
                     />
                   );
                 })}
