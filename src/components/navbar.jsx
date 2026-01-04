@@ -121,7 +121,7 @@ const Navbar = () => {
                 />
               </div>
 
-              <div className="sm:hidden !text-white">
+              <div className="sm:hidden !text-white hover:text-theme-primary  hover:scale-105 transition-all duration-200">
                 <p onClick={HideSideBar}>
                   {" "}
                   {showNav ? <IoMdClose /> : <GiHamburgerMenu />}
@@ -191,14 +191,14 @@ const Navbar = () => {
               </li>
             </ul>
 
-            <div className="flex gap-2 justify-center">
+            <div className="flex gap-4 justify-center">
               <div>
                 <a
                   href="https://wa.me/923116127244?text=Hi%20there%20I%20want%20to%20hire%20you%20for%20a%20project"
                   target="_blank"
                 >
-                  <div className="flex items-center gap-4 w-full  ">
-                    <FaWhatsapp  className="w-6 h-6"/>
+                  <div className="flex items-center gap-4 focus:scale-110 hover:scale-110 transition-all duration-300 ">
+                    <FaWhatsapp  className="w-8 h-8"/>
                   </div>
                 </a>
               </div>
@@ -207,15 +207,15 @@ const Navbar = () => {
                   href="https://www.linkedin.com/in/muhammad-umar-b481882ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                   target="_blank"
                 >
-                  <div className="flex items-center gap-4">
-                    <Linkedin />
+                  <div className="flex items-center gap-4 focus:scale-110 hover:scale-110 transition-all duration-300">
+                    <Linkedin className="w-8 h-8"/>
                   </div>
                 </a>
               </div>
               <div>
                 <a href="https://github.com/Umarmajeed711" target="_blank">
-                  <div className="flex items-center gap-4">
-                    <Github />
+                  <div className="flex items-center gap-4 focus:scale-110 hover:scale-110 transition-all duration-300">
+                    <Github className="w-8 h-8" />
                   </div>
                 </a>{" "}
               </div>

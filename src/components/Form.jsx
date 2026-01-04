@@ -18,7 +18,7 @@ export const Form = () => {
 
   const contactValidation = yup.object({
     name: yup.string().required("name is required"),
-    email: yup.string().email().required("Email is required"),
+    email: yup.string().email().required("email is required"),
     message: yup.string().required("message is required"),
   });
 
@@ -96,7 +96,7 @@ export const Form = () => {
               </div>
 
               <div
-                className={`col-span-3 md:col-span-2 pb-2 poppins text-xl  font-light flex justify-center  form-wrapper ${
+                className={`col-span-3 md:col-span-2 max-h-[600px] pb-2 poppins text-xl  font-light flex justify-center  form-wrapper ${
                   showForm ? "form-show" : ""
                 }`}
               >
@@ -106,23 +106,25 @@ export const Form = () => {
                   method="POST"
                   ref={formRef}
                   onSubmit={contactFormik.handleSubmit}
-                  className=" flex flex-col gap-3 p-5 rounded-2xl  w-80  contactForm"
+                  className=" flex flex-col gap-3 p-5 rounded-2xl  w-80 sm:w-96  contactForm"
                   style={{ boxShadow: "0 0 10px #c778db" }}
                 >
                   <div>Send me a Message</div>
 
                   <div className="flex flex-col gap-1 text-sm">
-                    <label htmlFor="name">Name</label>
-                    <div>
+                    {/* <label htmlFor="name">Name</label> */}
+
+                    <div className="inputBox">
                       <input
                         type="text"
+                        required
                         name="name"
                         id="name"
-                        placeholder="Enter your name"
                         value={contactFormik.values.name}
                         onChange={contactFormik.handleChange}
-                        className="inputField"
+                        // className="inputField"
                       />
+                      <span htmlFor="name">Name</span>
 
                       <div className="error-wrapper">
                         {contactFormik.touched.name &&
@@ -136,17 +138,16 @@ export const Form = () => {
                   </div>
 
                   <div className="flex flex-col gap-1 text-sm">
-                    <label htmlFor="email">Email</label>
-                    <div>
+                    <div className="inputBox">
                       <input
+                        required
                         type="email"
                         name="email"
                         id="email"
-                        placeholder="Enter your email"
                         value={contactFormik.values.email}
                         onChange={contactFormik.handleChange}
-                        className="inputField"
                       />
+                      <span htmlFor="email">Email</span>
 
                       <div className="error-wrapper">
                         {contactFormik.touched.email &&
@@ -160,9 +161,8 @@ export const Form = () => {
                   </div>
 
                   <div className="flex flex-col gap-1 text-sm">
-                    <label htmlFor="message">Message</label>
-                    <div>
-                      <input
+                    <div className="inputBox">
+                      {/* <input
                         type="text"
                         name="message"
                         id="message"
@@ -170,7 +170,16 @@ export const Form = () => {
                         value={contactFormik.values.message}
                         onChange={contactFormik.handleChange}
                         className="inputField "
-                      />
+                      /> */}
+                      <textarea
+                        name="message"
+                        required
+                        id="message"
+                        value={contactFormik.values.message}
+                        onChange={contactFormik.handleChange}
+                        className="inputField custom-scrollbar min-h-20"
+                      ></textarea>
+                      <span htmlFor="message">Message</span>
 
                       <div className="error-wrapper">
                         {contactFormik.touched.message &&

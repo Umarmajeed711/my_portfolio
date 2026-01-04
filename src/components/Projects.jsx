@@ -6,43 +6,43 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 const Projects = ({
-  // projects = [],
+  projects = [],
   loading = false,
   onEdit = () => {},
   deleteProject = () => {},
   isAdmin = false,
 }) => {
-  const projects = [
-    {
-      title: "Ecomerrce",
-      description: "Its my first project,Ecommerce",
-      image: "./project1.png",
-      live_link: "http://abc.com",
-      code_link: "http://abc.com",
-      isTopProject: "http://abc.com",
-    },
-    {
-      title: "Application",
-      description: "Its my Appicarion project,APp",
-      image: "./project2.png",
-      live_link: "http://abc.com",
-      code_link: "http://abc.com",
-      isTopProject: "http://abc.com",
-    },
-    {
-      title: "Ecomerrce",
-      description: "Its my first project,Ecommerce",
-      image: "./project3.png",
-      live_link: "http://abc.com",
-      code_link: "http://abc.com",
-      isTopProject: "http://abc.com",
-    },
-    {
-      title: "Ecomerrce",
-      description: "Its my first project,Ecommerce",
-      image: "./project4.png",
-    },
-  ];
+  // const projects = [
+  //   {
+  //     title: "Ecomerrce",
+  //     description: "Its my first project,Ecommerce",
+  //     image: "./project1.png",
+  //     live_link: "http://abc.com",
+  //     code_link: "http://abc.com",
+  //     isTopProject: "http://abc.com",
+  //   },
+  //   {
+  //     title: "Application",
+  //     description: "Its my Appicarion project,APp",
+  //     image: "./project2.png",
+  //     live_link: "http://abc.com",
+  //     code_link: "http://abc.com",
+  //     isTopProject: "http://abc.com",
+  //   },
+  //   {
+  //     title: "Ecomerrce",
+  //     description: "Its my first project,Ecommerce",
+  //     image: "./project3.png",
+  //     live_link: "http://abc.com",
+  //     code_link: "http://abc.com",
+  //     isTopProject: "http://abc.com",
+  //   },
+  //   {
+  //     title: "Ecomerrce",
+  //     description: "Its my first project,Ecommerce",
+  //     image: "./project4.png",
+  //   },
+  // ];
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -66,11 +66,11 @@ const Projects = ({
     <div className=" bg-theme-background h-full py-5">
       <div>
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5 ">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5 " id="Projects"> 
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="w-full h-80 animate-pulse shadow-md rounded-lg bg-slate-200 col-span-1 py-2 md:py-3"
+                className="w-full h-80 animate-pulse shadow-md rounded-lg bg-slate-200 col-span-1 py-2 md:py-3 project"
               ></div>
             ))}
           </div>

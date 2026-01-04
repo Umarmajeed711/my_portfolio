@@ -3,11 +3,12 @@ import { SiExpress, SiNextdotjs } from "react-icons/si";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import SkillCardSection from "./skillCard";
 
 const SkillBar = ({ name, icon, level, percent, className }) => {
   return (
     <div
-      className={`flex flex-col sm:flex-row items-start sm:items-end gap-8 w-full ${
+      className={`flex flex-col sm:flex-row items-start sm:items-end gap-4 sm:gap-8 w-full ${
         className || ""
       }`}
     >
@@ -72,22 +73,22 @@ const SkillBar = ({ name, icon, level, percent, className }) => {
   );
 };
 
-const SkillCard = ({ icon, name, className }) => (
-  <div
-    className={`
-      flex flex-col items-center gap-2
-      p-4 rounded-xl
-      border border-theme-secondary/20
-      hover:border-theme-primary
-      hover:-translate-y-1 hover:scale-105
-      transition-all duration-300
-      ${className || ""}
-      `}
-  >
-    <img src={icon} alt={name} className="h-12 w-12 sm:h-16 sm:w-16" />
-    <p className="text-sm">{name}</p>
-  </div>
-);
+// const SkillCard = ({ icon, name, className }) => (
+//   <div
+//     className={`
+//       flex flex-col items-center gap-2
+//       p-4 rounded-xl
+//       border border-theme-secondary/20
+//       hover:border-theme-primary
+//       hover:-translate-y-1 hover:scale-105
+//       transition-all duration-300
+//       ${className || ""}
+//       `}
+//   >
+//     <img src={icon} alt={name} className="h-12 w-12 sm:h-16 sm:w-16" />
+//     <p className="text-sm">{name}</p>
+//   </div>
+// );
 
 const Skills = () => {
   const languages = [
@@ -261,48 +262,48 @@ const Skills = () => {
         scroll: -1,
       },
     });
-    gsap.from("#Stagger1 .staggerBox1", {
-      yPercent: 30,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: "#Stagger1 .staggerBox1",
-        markers: true,
-        scrub: 2,
-        start: "top 80%",
-        end: "top 70%",
-        // scroll: -1,
-      },
-    });
-    gsap.from("#Stagger2 .staggerBox2", {
-      yPercent: 30,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: "#Stagger2 .staggerBox2",
-        markers: true,
-        scrub: 2,
-        start: "top 80%",
-        end: "top 70%",
-        // scroll: -1,
-      },
-    });
-    gsap.from("#Stagger3 .staggerBox3", {
-      yPercent: 30,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.3,
-      scrollTrigger: {
-        trigger: "#Stagger3 .staggerBox3",
-        markers: true,
-        scrub: 2,
-        start: "top 80%",
-        end: "top 70%",
-        // scroll: -1,
-      },
-    });
+    // gsap.from("#Stagger1 .staggerBox1", {
+    //   yPercent: 30,
+    //   opacity: 0,
+    //   duration: 1,
+    //   stagger: 0.3,
+    //   scrollTrigger: {
+    //     trigger: "#Stagger1 .staggerBox1",
+    //     markers: true,
+    //     scrub: 1,
+    //     start: "top 80%",
+    //     end: "top 70%",
+    //     scroll: -1,
+    //   },
+    // });
+    // gsap.from("#Stagger2 .staggerBox2", {
+    //   yPercent: 30,
+    //   opacity: 0,
+    //   duration: 1,
+    //   stagger: 0.3,
+    //   scrollTrigger: {
+    //     trigger: "#Stagger2 .staggerBox2",
+    //     markers: true,
+    //     scrub: 2,
+    //     start: "top 80%",
+    //     end: "top 70%",
+    //     // scroll: -1,
+    //   },
+    // });
+    // gsap.from("#Stagger3 .staggerBox3", {
+    //   yPercent: 30,
+    //   opacity: 0,
+    //   duration: 1,
+    //   stagger: 0.3,
+    //   scrollTrigger: {
+    //     trigger: "#Stagger3 .staggerBox3",
+    //     markers: true,
+    //     scrub: 2,
+    //     start: "top 80%",
+    //     end: "top 70%",
+    //     // scroll: -1,
+    //   },
+    // });
   });
 
 
@@ -404,93 +405,7 @@ const Skills = () => {
 
       
 
-      {/* libraries and Frameworks */}
-
-      <div
-        className="grid grid-cols-1 md:grid-cols-3 gap-10 my-2 sm:my-5  "
-        id="Stagger1"
-      >
-        <div className="col-span-3">
-          <div className="flex flex-col justify-center  items-center">
-            <div className="text-2xl font-bold mt-5 capitalize jetBranis">
-              Libraries & Frameworks
-            </div>
-
-            <div className="flex gap-5 m-5 justify-center items-center">
-              <div className="flex gap-8 flex-wrap justify-center">
-                {frameworks?.map((each, i) => {
-                  return (
-                    <SkillCard
-                      key={i}
-                      icon={each.icon}
-                      name={each.name}
-                      className="staggerBox1"
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Tools & Hosting */}
-      <div
-        className="grid grid-cols-1 md:grid-cols-3 gap-10 my-5  "
-        id="Stagger2"
-      >
-        <div className="col-span-3">
-          <div className="flex flex-col justify-center  items-center">
-            <div className="text-2xl font-bold mt-5 capitalize jetBranis">
-              Tools & Hostings
-            </div>
-
-            <div className="flex gap-5 m-5 justify-center items-center">
-              <div className="flex gap-4 flex-wrap justify-center">
-                {tools?.map((each, i) => {
-                  return (
-                    <SkillCard
-                      key={i}
-                      icon={each.icon}
-                      name={each.name}
-                      className="staggerBox2"
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Backend & DataBases */}
-      <div
-        className="grid grid-cols-1 md:grid-cols-3 gap-10 my-5"
-        id="Stagger3"
-      >
-        <div className="col-span-3">
-          <div className="flex flex-col justify-center  items-center">
-            <div className="text-2xl font-bold mt-5 capitalize jetBranis">
-              Backend & DataBases
-            </div>
-
-            <div className="flex gap-5 m-5 justify-center items-center">
-              <div className="flex gap-4 flex-wrap justify-center">
-                {backend?.map((each, i) => {
-                  return (
-                    <SkillCard
-                      key={i}
-                      icon={each.icon}
-                      name={each.name}
-                      className="staggerBox3"
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+       <SkillCardSection/>
     </div>
   );
 };

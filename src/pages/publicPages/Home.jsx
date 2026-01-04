@@ -264,11 +264,11 @@ const Home = () => {
 
           {/* hero image */}
           <div className="heroImg col-span-1 flex justify-center items-center flex-col h-full picSection">
-            <div className="">
+            <div className="!bg-transparent">
               <img
-                src="./hero.png"
+                src="./heroImage.png"
                 alt=""
-                className="h-56 md:h-80 w-64 md:w-80"
+                className="h-56 md:h-80 w-64 md:w-80 !bg-transparent"
               />
             </div>
             <div>

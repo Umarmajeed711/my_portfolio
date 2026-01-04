@@ -6,6 +6,7 @@ import BulbSection from "../../components/BulbSection";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import CertificateSection from "../../components/Certificate";
 
 const About = () => {
   const work = [
@@ -22,20 +23,24 @@ const About = () => {
     "Ensure clean code and performance optimization",
   ];
 
-    gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    
     gsap.from("#About .nameSection", {
-        x: -50,
-        duration: 1,
-        opacity: 0,
-        delay: 0,
-      }); 
+      x: -50,
+      duration: 1,
+      opacity: 0,
+      delay: 0,
+    });
 
-      gsap.from("#About .picSection", { y: 50, opacity: 0, duration: 1, delay: 0 });
+    gsap.from("#About .picSection", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      delay: 0,
+    });
 
-      gsap.from("#WhatIDO .whatImage", {
+    gsap.from("#WhatIDO .whatImage", {
       xPercent: -20,
       duration: 1,
       opacity: 0,
@@ -50,7 +55,7 @@ const About = () => {
       },
     });
 
-     gsap.from("#WhatIDO .whatText", {
+    gsap.from("#WhatIDO .whatText", {
       xPercent: 10,
       duration: 1,
       opacity: 0,
@@ -65,6 +70,20 @@ const About = () => {
       },
     });
 
+    gsap.from("#education .edu", {
+      yPercent: 20,
+      duration: 1,
+      opacity: 0,
+      stagger:0.4,
+      scrollTrigger: {
+        trigger: "#education .edu",
+        // markers: true,
+        scrub: 2,
+        start: "top 75%",
+        end: "top 75%",
+        scroll: -1,
+      },
+    });
   });
   return (
     <>
@@ -121,7 +140,6 @@ const About = () => {
               </div>
             </div>
 
-          
             <div className="col-span-1 flex justify-center items-center picSection">
               <img
                 src="./hero.png"
@@ -183,75 +201,69 @@ const About = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
-            <div className="col-span-1 py-0">
-              <div className=" ">
-                <div className="pl-1 sm:pl-6">
-                  <span className="text-[18px] sm:text-xl source ">
-                    const = Matriculation{" "}
-                  </span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 py-2 sm:py-4 " id="education">
+            <div className="col-span-1 py-0 edu">
+              <div className="pl-1 sm:pl-2">
+                <span className="text-[18px] sm:text-xl source ">
+                  const = Matriculation{" "}
+                </span>
+              </div>
+              <div className="flex flex-col gap-4  py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-4 ">
+                <div className="flex gap-2 text-sm sm:text-xl">
+                  <p className="jetBranis text-gray-400">School:</p>
+                  <p className="ibm text-gray-500">"A.R.C.A School",</p>
                 </div>
-                <div className="flex flex-col gap-4  py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-10 ">
-                  <div className="flex gap-2 text-sm sm:text-xl">
-                    <p className="jetBranis text-gray-400">School:</p>
-                    <p className="ibm text-gray-500">
-                      "AL RAZZAQ CHILDREN ACADEMY",
-                    </p>
-                  </div>
-                  <div className="flex gap-2 text-sm sm:text-xl">
-                    <p className="jetBranis text-gray-400">Subject:</p>
-                    <p className="ibm text-gray-500">"Computer Science",</p>
-                  </div>
-                  <div className="flex gap-2 text-sm sm:text-xl">
-                    <p className="jetBranis text-gray-400">Passing Year:</p>
-                    <p className="ibm text-gray-500">2022</p>
-                  </div>
+                <div className="flex gap-2 text-sm sm:text-xl">
+                  <p className="jetBranis text-gray-400">Subject:</p>
+                  <p className="ibm text-gray-500">"Computer Science",</p>
+                </div>
+                <div className="flex gap-2 text-sm sm:text-xl">
+                  <p className="jetBranis text-gray-400">Passing Year:</p>
+                  <p className="ibm text-gray-500">2022</p>
                 </div>
               </div>
+            </div>
 
-              <div className=" ">
-                <div className="pl-1 sm:pl-6">
-                  <span className="text-[18px] sm:text-xl source ">
-                    const = Intermediate{" "}
-                  </span>
+            <div className="col-span-1 py-0 edu">
+              <div className="pl-1 sm:pl-2">
+                <span className="text-[18px] sm:text-xl source ">
+                  const = Intermediate{" "}
+                </span>
+              </div>
+              <div className="flex flex-col gap-4 py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-4 ">
+                <div className="flex gap-2 text-sm sm:text-xl">
+                  <p className="jetBranis text-gray-400">College:</p>
+                  <p className="ibm text-gray-500">"Jinnah Govt College",</p>
                 </div>
-                <div className="flex flex-col gap-4 py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-10 ">
-                  <div className="flex gap-2 text-sm sm:text-xl">
-                    <p className="jetBranis text-gray-400">College:</p>
-                    <p className="ibm text-gray-500">"Jinnah Govt College",</p>
-                  </div>
-                  <div className="flex gap-2 text-sm sm:text-xl">
-                    <p className="jetBranis text-gray-400">Subject:</p>
-                    <p className="ibm text-gray-500">"Fsc pre-engineering",</p>
-                  </div>
-                  <div className="flex gap-2 text-sm sm:text-xl">
-                    <p className="jetBranis text-gray-400">Passing Year:</p>
-                    <p className="ibm text-gray-500">2024</p>
-                  </div>
+                <div className="flex gap-2 text-sm sm:text-xl">
+                  <p className="jetBranis text-gray-400">Subject:</p>
+                  <p className="ibm text-gray-500">"Fsc pre-engineering",</p>
+                </div>
+                <div className="flex gap-2 text-sm sm:text-xl">
+                  <p className="jetBranis text-gray-400">Passing Year:</p>
+                  <p className="ibm text-gray-500">2024</p>
                 </div>
               </div>
+            </div>
 
-              <div className=" ">
-                <div className="pl-1 sm:pl-6">
-                  <span className="text-[18px] sm:text-xl source ">
-                    const = Mern{" "}
-                  </span>
+            <div className="col-span-1 py-0 edu">
+              <div className="pl-1 sm:pl-2">
+                <span className="text-[18px] sm:text-xl source ">
+                  const = Mern{" "}
+                </span>
+              </div>
+              <div className="flex flex-col gap-4 py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-4 ">
+                <div className="flex gap-2 text-sm sm:text-xl">
+                  <p className="jetBranis text-gray-400">Institute:</p>
+                  <p className="ibm text-gray-500">"SMIT",</p>
                 </div>
-                <div className="flex flex-col gap-4 py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-10 ">
-                  <div className="flex gap-2 text-sm sm:text-xl">
-                    <p className="jetBranis text-gray-400">Institute:</p>
-                    <p className="ibm text-gray-500">"SMIT",</p>
-                  </div>
-                  <div className="flex gap-2 text-sm sm:text-xl">
-                    <p className="jetBranis text-gray-400">Course:</p>
-                    <p className="ibm text-gray-500">
-                      "Mern Stack Development",
-                    </p>
-                  </div>
-                  <div className="flex gap-2 text-sm sm:text-xl">
-                    <p className="jetBranis text-gray-400">Passing Year:</p>
-                    <p className="ibm text-gray-500">2025</p>
-                  </div>
+                <div className="flex gap-2 text-sm sm:text-xl">
+                  <p className="jetBranis text-gray-400">Course:</p>
+                  <p className="ibm text-gray-500">"Mern Stack Development",</p>
+                </div>
+                <div className="flex gap-2 text-sm sm:text-xl">
+                  <p className="jetBranis text-gray-400">Passing Year:</p>
+                  <p className="ibm text-gray-500">2025</p>
                 </div>
               </div>
             </div>
@@ -267,10 +279,9 @@ const About = () => {
               <div className="h-[1px] sm:w-96 md:w-[500px] lg:w-[700px]  bg-theme-primary"></div>
             </div>
           </div>
+          <CertificateSection/>
 
           <BulbSection />
-
-          
         </div>
         <Footer />
       </div>
