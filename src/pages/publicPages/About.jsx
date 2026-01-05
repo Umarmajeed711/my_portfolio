@@ -208,10 +208,11 @@ const About = () => {
             <div className="col-span-1 py-0 edu">
               <div className="pl-1 sm:pl-2">
                 <span className="text-[18px] sm:text-xl source ">
-                  const = Matriculation{" "}
+                  const = <span className="text-gray-200"> Matriculation</span>
                 </span>
               </div>
-              <div className="flex flex-col gap-4  py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-4 ">
+              <div className="flex flex-col gap-4  py-4 sm:py-6 pt-5 text-[18px] pl-2 sm:pl-4 ">
+                <span>&#123;</span>
                 <div className="flex gap-2 text-sm sm:text-xl">
                   <p className="jetBranis text-gray-400">School:</p>
                   <p className="ibm text-gray-500">"A.R.C.A School",</p>
@@ -224,16 +225,18 @@ const About = () => {
                   <p className="jetBranis text-gray-400">Passing Year:</p>
                   <p className="ibm text-gray-500">2022</p>
                 </div>
+                <span>&#125;;</span>
               </div>
             </div>
 
             <div className="col-span-1 py-0 edu">
               <div className="pl-1 sm:pl-2">
                 <span className="text-[18px] sm:text-xl source ">
-                  const = Intermediate{" "}
+                  const = <span className="text-gray-200">Intermediate</span>
                 </span>
               </div>
-              <div className="flex flex-col gap-4 py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-4 ">
+              <div className="flex flex-col gap-4 py-4 sm:py-6 pt-5 text-[18px] pl-2 sm:pl-4 ">
+                <span>&#123;</span>
                 <div className="flex gap-2 text-sm sm:text-xl">
                   <p className="jetBranis text-gray-400">College:</p>
                   <p className="ibm text-gray-500">"Jinnah Govt College",</p>
@@ -246,16 +249,18 @@ const About = () => {
                   <p className="jetBranis text-gray-400">Passing Year:</p>
                   <p className="ibm text-gray-500">2024</p>
                 </div>
+                <span>&#125;;</span>
               </div>
             </div>
 
             <div className="col-span-1 py-0 edu">
               <div className="pl-1 sm:pl-2">
                 <span className="text-[18px] sm:text-xl source ">
-                  const = Mern{" "}
+                  const = <span className="text-gray-200">Mern</span>
                 </span>
               </div>
-              <div className="flex flex-col gap-4 py-4 sm:py-10 pt-5 text-[18px] pl-2 sm:pl-4 ">
+              <div className="flex flex-col gap-4 py-4 sm:py-6 pt-5 text-[18px] pl-2 sm:pl-4 ">
+                <span>&#123;</span>
                 <div className="flex gap-2 text-sm sm:text-xl">
                   <p className="jetBranis text-gray-400">Institute:</p>
                   <p className="ibm text-gray-500">"SMIT",</p>
@@ -268,6 +273,7 @@ const About = () => {
                   <p className="jetBranis text-gray-400">Passing Year:</p>
                   <p className="ibm text-gray-500">2025</p>
                 </div>
+                <span>&#125;;</span>
               </div>
             </div>
           </div>

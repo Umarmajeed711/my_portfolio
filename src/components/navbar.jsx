@@ -93,7 +93,7 @@ const Navbar = () => {
                 contact
               </Link> */}
             </li>
-            {state?.isLogin ? (
+            {state?.isAdmin ? (
               <button className="button p-1 ibm" onClick={logout}>
                 Logout
               </button>
