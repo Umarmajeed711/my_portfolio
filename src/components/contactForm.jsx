@@ -134,7 +134,7 @@ export const ContactForm = () => {
             <div className="col-span-1 poppins text-xl  font-light flex justify-center ">
               {/* Send message form */}
               <form
-                action="https://formsubmit.com/umarmajeed711@gmail.com"
+                action="https://formsubmit.co/umarmajeed711@gmail.com"
                 method="POST"
                 ref={formRef}
                 onSubmit={contactFormik.handleSubmit}

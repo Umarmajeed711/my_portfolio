@@ -8,6 +8,7 @@ import { Form } from "../../components/Form";
 export const Contact = () => {
   return (
     <div className="w-full">
+       
       <Navbar />
       <div className="mt-5 sm:mt-12 px-4 md:px-8 lg:px-20  bg-theme-background text-theme-white w-full  ">
         <div className="jetBranis text-4xl flex justify-center items-center">

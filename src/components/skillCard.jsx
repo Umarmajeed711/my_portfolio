@@ -145,13 +145,13 @@ const SkillCardSection = () => {
     gsap.from("#stag .stagBox", {
       rotate: 45,
       opacity: 0,
-      duration: 1,
+      // duration: .5,
       // stagger: 0.8,
       scrollTrigger: {
         trigger: "#stag .stagBox",
         // markers: true,
         scrub: 2,
-        start: "top 80%",
+        start: "top 50%",
         end: "top 70%",
         scroll: -1,
       },
