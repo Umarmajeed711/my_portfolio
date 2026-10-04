@@ -92,12 +92,12 @@ const CurrentlyWorkingOn = ({ onclose = () => {}, titleData = {},OnSuccess = () 
       {/*Add Project Form */}
 
       <div
-        className="border rounded-lg  w-full  border-[#979696cc] overflow-hidden h-full pl-2 "
+        className="  w-full   overflow-hidden h-full pl-2 "
         style={{ boxShadow: "0 0 10px #c979df  " }}
       >
         <form
           onSubmit={addProjectFormik.handleSubmit}
-          className=" px-4   flex flex-col gap-4 items-center overflow-hidden h-full w-full "
+          className=" px-4   flex flex-col gap-4  overflow-hidden h-full w-full "
         >
           <p className="jetBranis text-xl sm:text-2xl md:text-3xl font-medium sm:font-semibold mt-2   ">
             {titleData?._id ? "Update" : "Add"} Title
@@ -136,10 +136,12 @@ const CurrentlyWorkingOn = ({ onclose = () => {}, titleData = {},OnSuccess = () 
               </div>
             </div>
 
-            <div className="flex flex-col justify-between items-center">
+           
+          </div>
+           <div className="flex gap-3 w-full py-1 justify-between items-center">
               <button
                 disabled={loading}
-                className=" bg-theme-primary transition-all duration-200 flex justify-center rounded px-3 py-2 my-2 text-white  hover:bg-[#b554cd] hover:shadow-md"
+                className=" bg-theme-primary w-[70%] transition-all duration-200 flex shrink-0 justify-center rounded px-3 py-2 my-2 text-white  hover:bg-[#b554cd] hover:shadow-md"
                 type="submit"
               >
                 {loading ? (
@@ -152,8 +154,15 @@ const CurrentlyWorkingOn = ({ onclose = () => {}, titleData = {},OnSuccess = () 
                   "Update Title"
                 )}
               </button>
+              <button
+              type="reset"
+              disabled={loading}
+              className=" bg-gray-400  transition-all duration-200 flex justify-center w-full rounded px-3 py-2 my-2 text-white  hover:bg-gray-500 hover:shadow-md"
+              onClick={onclose}
+            >
+              Cancel
+            </button>
             </div>
-          </div>
         </form>
       </div>
     </div>

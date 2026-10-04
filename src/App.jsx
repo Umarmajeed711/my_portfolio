@@ -21,7 +21,6 @@ const App = () => {
       dispatch({ type: "USER_LOGOUT" });
     } finally {
       setLoading(false);
-      console.log("state", state?.isLogin);
     }
   };
 

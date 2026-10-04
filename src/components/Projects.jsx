@@ -132,22 +132,22 @@ const Projects = ({
                       <div className="absolute top-2 right-2 flex flex-col gap-1 opacity-0 group-hover:opacity-100 bg-transparent">
                         <button
                           onClick={() => onEdit(project)}
-                          // className="border border-theme-primary text-[#ABB2BF] px-3 py-1 text-xs rounded  transition-all duration-300 hover:scale-105"
                           className="edit-buttons"
                         >
                           <Pencil
                             size={18}
-                            className="edit hover:!text-theme-primary"
+                            className="edit"
+                            stroke="currentColor"
                           />
                         </button>
                         <button
                           onClick={() => deleteProject(project)}
-                          // className="border border-theme-primary text-[#ABB2BF] hover:text-[#E5484D] px-3 py-1 text-xs rounded  transition-all duration-300 hover:scale-105"
                           className="edit-buttons"
                         >
                           <Trash2
                             size={18}
-                            className="edit hover:!text-theme-primary"
+                            className="edit"
+                            // stroke="currentColor" 
                           />
                         </button>
                       </div>

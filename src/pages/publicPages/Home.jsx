@@ -238,7 +238,7 @@ const Home = () => {
 
             <div>
               <a
-                href="mailto:mu493790@gmail.com?subject=Hire%20Request"
+                href="mailto:umarmajeed711@gmail.com?subject=Hire%20Request"
                 className="
     inline-flex items-center gap-2
     mt-4 px-5 py-2
@@ -417,7 +417,7 @@ const Home = () => {
             // setTitle({});
           }}
           isOpen={showTitleModal}
-          className="!h-64"
+          // className="!h-64 !justify-center"
         >
           <CurrentlyWorkingOn
             onclose={() => {

@@ -12,7 +12,7 @@ import { GlobalContext } from "../context/Context";
 export const Myroutes = () => {
   let { state, dispatch } = useContext(GlobalContext);
 
-  let isLogin = state?.isLogin;
+  let isAdmin = state?.isAdmin;
 
   return (
     <div>
@@ -24,16 +24,16 @@ export const Myroutes = () => {
         <Route path="/forget-password" element={<ForgetPassword />} />
 
         {/* NOT LOGGED IN */}
-        {/* {!isLogin && (
+        {/* {!isAdmin && (
           <>
             <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={isLogin ? <Dashboard /> : <Navigate to="/login" replace />} />
+            <Route path="/dashboard" element={isAdmin ? <Dashboard /> : <Navigate to="/login" replace />} />
             <Route path="*" element={<Navigate to="/"  />}></Route>
           </>
         )} */}
 
         {/* LOGGED IN */}
-        {/* {isLogin && (
+        {/* {isAdmin && (
           <>
             <Route path="/login" element={<Navigate to="/dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />
@@ -43,20 +43,20 @@ export const Myroutes = () => {
 
         <Route
           path="/login"
-          element={isLogin ? <Navigate to="/dashboard" replace /> : <Login />}
+          element={isAdmin ? <Navigate to="/dashboard" replace /> : <Login />}
         />
 
         {/* Protected Dashboard */}
         <Route
           path="/dashboard"
-          element={isLogin ? <Dashboard /> : <Navigate to="/login" replace />}
+          element={isAdmin ? <Dashboard /> : <Navigate to="/login" replace />}
         />
 
         {/* Fallback Route */}
         <Route
           path="*"
           element={
-            isLogin ? (
+            isAdmin ? (
               <Navigate to="/dashboard" replace />
             ) : (
               <Navigate to="/" replace />

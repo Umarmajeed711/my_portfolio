@@ -19,7 +19,7 @@ export const Footer = () => {
                             <span className='text-xl font-medium'>M.Umar</span>
                         </div>
                         <div className='text-theme-secondary'>
-                            <a href="mailto:mu493790@gmail.com">mu493790@gmail.com</a>
+                            <a href="mailto:umarmajeed711@gmail.com">umarmajeed711@gmail.com</a>
                         </div>
                     </div>
 

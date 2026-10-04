@@ -38,7 +38,6 @@ const AddProject = ({
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("project Data", projectData);
     addProjectFormik.setFieldValue("title", projectData?.title);
     addProjectFormik.setFieldValue("description", projectData?.description);
     addProjectFormik.setFieldValue("live_link", projectData?.live_link);
@@ -69,7 +68,6 @@ const AddProject = ({
 
     onSubmit: async (values) => {
       setloading(true);
-      console.log(values);
 
       const formData = new FormData();
       formData.append("title", values.title);
@@ -77,36 +75,42 @@ const AddProject = ({
       formData.append("live_link", values.live_link);
       formData.append("code_link", values.code_link);
       formData.append("image", values.image);
-      formData.append("isTopProject", values.isTopProject);
+      formData.append("isTopProject", values.isTopProject ? true : false);
 
-      // Check values inside FormData
-      for (let [key, value] of formData.entries()) {
-        console.log(key, value);
-      }
 
-      console.log("Form dAta", formData);
+      // for (const [key, value] of formData.entries()) {
+      //   console.log(
+      //     key,
+      //     value,
+      //     value instanceof File
+      //       ? {
+      //           name: value.name,
+      //           type: value.type,
+      //           size: value.size,
+      //         }
+      //       : typeof value,
+      //   );
+      // }
 
       try {
         let response = await api.post(
-          `/project?id=${projectData?._id || ""}`,
+          `/project${projectData?._id ? `?id=${projectData?._id}` : ""}`,
           formData,
           {
             headers: {
               "Content-Type": "multipart/form-data",
             },
-          }
+          },
         );
-
-        console.log(response);
 
         setloading(false);
         // navigate("/dashbaord")
 
         addProjectFormik.resetForm();
-       
+
         OnSuccess({
           icon: "success",
-          message: response?.data?.message || "Add Project Successfully"
+          message: response?.data?.message || "Add Project Successfully",
         });
       } catch (error) {
         setloading(false);
@@ -167,18 +171,19 @@ const AddProject = ({
       {/*Add Project Form */}
 
       <div
-        className="border rounded-lg  w-full  border-[#979696cc] overflow-hidden h-full pl-2 "
+        className=" w-full overflow-hidden h-full pl-2 "
         style={{ boxShadow: "0 0 10px #c979df  " }}
+        // border-[#979696cc]d
       >
         <form
-          onSubmit={addProjectFormik.handleSubmit}
-          className=" px-4   flex flex-col gap-4 items-center overflow-hidden h-full w-full "
+          // onSubmit={addProjectFormik.handleSubmit}
+          className=" px-2 flex flex-col   overflow-hidden h-full w-full "
         >
-          <p className="jetBranis text-xl sm:text-2xl md:text-3xl font-medium sm:font-semibold mt-2   ">
+          <p className="jetBranis text-xl sm:text-2xl md:text-[26px] font-medium sm:font-semibold py-2 ">
             {projectData?._id ? "Update" : "Add"} Project
           </p>
 
-          <div className="flex flex-col gap-4 w-full overflow-x-hidden overflow-y-auto  h-full custom-scrollbar">
+          <div className="flex flex-col gap-4 w-full overflow-x-hidden overflow-y-auto  h-full custom-scrollbar p-1">
             {/* Title */}
             <div className="flex gap-3 flex-col justify-center ">
               <label>
@@ -318,7 +323,7 @@ const AddProject = ({
                   onChange={(e) =>
                     addProjectFormik.setFieldValue(
                       "isTopProject",
-                      e.target.checked
+                      e.target.checked,
                     )
                   }
                   className="w-5 h-5 cursor-pointer"
@@ -392,24 +397,34 @@ const AddProject = ({
                   </p>
                 )}
             </div>
-
-            <div className="flex flex-col justify-between items-center">
-              <button
-                disabled={loading}
-                className=" bg-theme-primary transition-all duration-200 flex justify-center rounded px-3 py-2 my-2 text-white  hover:bg-[#b554cd] hover:shadow-md"
-                type="submit"
-              >
-                {loading ? (
-                  <div className="flex items-center px-1 py-2 gap-2 bg-transparent">
-                    <span className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-                    <span className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-                    <span className="w-2 h-2 bg-white rounded-full animate-bounce"></span>
-                  </div>
-                ) : 
-                 ( projectData?._id ? "Update Project"   : "Add Project")
-                }
-              </button>
-            </div>
+          </div>
+          <div className="flex gap-3 items-center w-full py-1">
+            <button
+              disabled={loading}
+              className=" bg-theme-primary  transition-all duration-200 flex shrink-0  justify-center w-[70%] rounded px-3 py-2 my-2 text-white  hover:bg-[#b554cd] hover:shadow-md"
+              type="submit"
+              onClick={addProjectFormik.handleSubmit}
+            >
+              {loading ? (
+                <div className="flex items-center px-1 py-2 gap-2 bg-transparent">
+                  <span className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                  <span className="w-2 h-2 bg-white rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                  <span className="w-2 h-2 bg-white rounded-full animate-bounce"></span>
+                </div>
+              ) : projectData?._id ? (
+                "Update Project"
+              ) : (
+                "Add Project"
+              )}
+            </button>
+            <button
+              type="reset"
+              disabled={loading}
+              className=" bg-gray-400  transition-all duration-200 flex justify-center w-full rounded px-3 py-2 my-2 text-white  hover:bg-gray-500 hover:shadow-md"
+              onClick={onclose}
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>

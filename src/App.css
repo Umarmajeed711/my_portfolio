@@ -193,24 +193,23 @@
 }
 
 .edit-buttons {
-  /* border border-theme-primary text-[#ABB2BF] px-3 py-1 text-xs rounded  transition-all duration-300 hover:scale-105 */
-  background-color: #ccc;
+  background-color: #5c5c5c;
   border: 1px solid #c778dd;
-  padding: 4px 12px;
-  font: 14px;
+  padding: 4px 8px;
   border-radius: 6px;
   transition: all 0.3s;
-  background-clip: blur(40px);
+  backdrop-filter: blur(40px);
 }
+
 .edit {
-  /* className="!text-[#C778DD] bg-transparent  hover:!text-[#C778DD] transition-all duration-300 hover:scale-105" */
-  color: #abb2bf !important;
+  /* stroke: #abb2bf; */
   background: transparent;
   transition: all 0.3s;
 }
 
 .edit:hover {
-  color: #c778dd !important ;
+  /* color: #c778dd !important; */
+  stroke:#c778dd;
   transform: scale(1.2);
 }
 

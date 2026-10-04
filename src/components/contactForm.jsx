@@ -226,7 +226,7 @@ export const ContactForm = () => {
                 <input
                   type="hidden"
                   name="_next"
-                  value="https://ss1-portfolio.netlify.app/"
+                  value="https://my-portfolio-ruby-ten-36.vercel.app/"
                 />
 
                 <div
