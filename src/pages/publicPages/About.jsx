@@ -143,7 +143,7 @@ const About = () => {
             <div className="col-span-1 flex justify-center items-center picSection">
               <img
                 src="./heroImage.png"
-                alt=""
+                alt="profile-image"
                 className="h-56 md:h-96 w-56 md:w-96  myshadow "
               />
             </div>

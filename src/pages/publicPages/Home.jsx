@@ -267,7 +267,7 @@ const Home = () => {
             <div className="!bg-transparent">
               <img
                 src="./heroImage.png"
-                alt=""
+                alt="profile-image"
                 className="h-56 md:h-80 w-64 md:w-80 !bg-transparent"
               />
             </div>

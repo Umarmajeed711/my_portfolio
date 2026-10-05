@@ -6,7 +6,7 @@ export default function CertificateSection() {
 
   const certificate = {
     title: "MERN Stack Developer",
-    image: "/hero.png", // replace with your certificate path
+    image: "/certificate.png", // replace with your certificate path
     institute: "SMIT",
     completed: "Aug 2025",
     skills: ["MongoDB", "Express.js", "React.js", "Node.js"],
