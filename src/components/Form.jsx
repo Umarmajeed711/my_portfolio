@@ -109,7 +109,7 @@ export const Form = () => {
                   className=" flex flex-col gap-3 p-5 rounded-2xl  w-80 sm:w-96  contactForm"
                   style={{ boxShadow: "0 0 10px #c778db" }}
                 >
-                  <div>Send me a Message</div>
+                  <div>Send me Message</div>
 
                   <div className="flex flex-col gap-1 text-sm">
                     {/* <label htmlFor="name">Name</label> */}
@@ -177,7 +177,7 @@ export const Form = () => {
                         id="message"
                         value={contactFormik.values.message}
                         onChange={contactFormik.handleChange}
-                        className="inputField custom-scrollbar min-h-20"
+                        className="inputField custom-scrollbar  !h-24 resize-none"
                       ></textarea>
                       <span htmlFor="message">Message</span>
 
